@@ -1,0 +1,344 @@
+# Copyright (C) 2013 Charlie MERLAND
+# This file is distributed under the GNU GPL V3.
+msgid ""
+msgstr ""
+"Project-Id-Version: WPMedium 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/WPMedium\n"
+"POT-Creation-Date: 2013-01-19 11:04:01+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: archive.php:29 index.php:44
+msgid "%d Post"
+msgid_plural "%d Posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: archive.php:30
+msgid "Posted On %s %s"
+msgstr ""
+
+#: archive.php:45 content.php:23 index.php:56 single.php:27
+msgid "Permalink to %s"
+msgstr ""
+
+#: archive.php:54 index.php:65 single.php:24
+msgid "In"
+msgstr ""
+
+#: archive.php:54 content.php:41 index.php:65 single.php:24
+msgid "Edit"
+msgstr ""
+
+#: archive.php:60 index.php:71
+msgid "Prev page"
+msgstr ""
+
+#: archive.php:60 index.php:71
+msgid "Next page"
+msgstr ""
+
+#: archive.php:66 index.php:77 single.php:68
+msgid "No posts"
+msgstr ""
+
+#: archive.php:70
+msgid "Get Started %s"
+msgstr ""
+
+#: archive.php:74 index.php:85 single.php:77
+msgid "Nothing Found"
+msgstr ""
+
+#: archive.php:78 single.php:81
+msgid "No Results Found"
+msgstr ""
+
+#: archive.php:84 archive.php:87
+msgid "Coming soon"
+msgstr ""
+
+#: comments.php:9
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:16
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:17
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:18
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:23
+msgid "Comments are closed."
+msgstr ""
+
+#: content.php:14
+msgid "Featured post"
+msgstr ""
+
+#: content.php:35 single.php:33
+msgid "Pages:"
+msgstr ""
+
+#: content.php:48
+msgid "About %s"
+msgstr ""
+
+#: content.php:52 single.php:51
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: functions.php:16
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:100 functions.php:104
+msgid "Recommend"
+msgstr ""
+
+#: functions.php:101 functions.php:105
+msgid "Recent"
+msgstr ""
+
+#: functions.php:121 functions.php:125
+msgid "Newest"
+msgstr ""
+
+#: functions.php:122 functions.php:126
+msgid "Oldest"
+msgstr ""
+
+#: functions.php:249
+msgid "Category Image"
+msgstr ""
+
+#: functions.php:260
+msgid "Upload Image"
+msgstr ""
+
+#: functions.php:261
+msgid "Delete Image"
+msgstr ""
+
+#: functions.php:262
+msgid "Category Image Help"
+msgstr ""
+
+#: functions.php:379
+msgid "WPMedium Theme Options"
+msgstr ""
+
+#: functions.php:469
+msgid "Upload Logo"
+msgstr ""
+
+#: functions.php:471
+msgid "Delete Logo"
+msgstr ""
+
+#: functions.php:563
+msgid "Use As Logo"
+msgstr ""
+
+#: index.php:81
+msgid "Get started"
+msgstr ""
+
+#: index.php:89
+msgid "No results found"
+msgstr ""
+
+#: single.php:38
+msgid "This post has been tagged as"
+msgstr ""
+
+#: single.php:55
+msgid "Published"
+msgstr ""
+
+#: single.php:72
+msgid "Get Started"
+msgstr ""
+
+#: theme-options.php:26
+msgid "General Settings"
+msgstr ""
+
+#: theme-options.php:29
+msgid "General Settings Help"
+msgstr ""
+
+#: theme-options.php:33
+msgid "Site Logo"
+msgstr ""
+
+#: theme-options.php:36
+msgid "Site Logo Help %s"
+msgstr ""
+
+#: theme-options.php:43
+msgid "Ajax Browsing"
+msgstr ""
+
+#: theme-options.php:46
+msgid "Ajax Browsing Help"
+msgstr ""
+
+#: theme-options.php:47
+msgid "Toggle Ajax Browsing"
+msgstr ""
+
+#: theme-options.php:55
+msgid "Display Settings"
+msgstr ""
+
+#: theme-options.php:58
+msgid "Display Settings Help"
+msgstr ""
+
+#: theme-options.php:63
+msgid "Background Color"
+msgstr ""
+
+#: theme-options.php:66
+msgid "Background Color Help %s"
+msgstr ""
+
+#: theme-options.php:74
+msgid "Text Color"
+msgstr ""
+
+#: theme-options.php:77
+msgid "Text Color Help %s"
+msgstr ""
+
+#: theme-options.php:85
+msgid "Header Overlay Color"
+msgstr ""
+
+#: theme-options.php:88
+msgid "Header Overlay Color Help %s"
+msgstr ""
+
+#: theme-options.php:96
+msgid "Header Overlay Opacity"
+msgstr ""
+
+#: theme-options.php:99
+msgid "Header Overlay Opacity Help %s"
+msgstr ""
+
+#: theme-options.php:107
+msgid "Link Color"
+msgstr ""
+
+#: theme-options.php:110
+msgid "Link Color Help %s"
+msgstr ""
+
+#: theme-options.php:118
+msgid "Link Hover Color"
+msgstr ""
+
+#: theme-options.php:121
+msgid "Link Hover Color Help %s"
+msgstr ""
+
+#: theme-options.php:129
+msgid "Title Color"
+msgstr ""
+
+#: theme-options.php:132
+msgid "Title Color Help %s"
+msgstr ""
+
+#: theme-options.php:140
+msgid "Title Hover Color"
+msgstr ""
+
+#: theme-options.php:143
+msgid "Title Hover Color Help %s"
+msgstr ""
+
+#: theme-options.php:152
+msgid "Social Settings"
+msgstr ""
+
+#: theme-options.php:155
+msgid "Social Settings Help"
+msgstr ""
+
+#: theme-options.php:159
+msgid "Facebook Profile"
+msgstr ""
+
+#: theme-options.php:169
+msgid "Twitter Profile"
+msgstr ""
+
+#: theme-options.php:179
+msgid "Google+ Profile"
+msgstr ""
+
+#: theme-options.php:189
+msgid "Flickr Profile"
+msgstr ""
+
+#: theme-options.php:199
+msgid "DeviantArt Profile"
+msgstr ""
+
+#: theme-options.php:209
+msgid "Blogger Profile"
+msgstr ""
+
+#: theme-options.php:219
+msgid "Tumblr Profile"
+msgstr ""
+
+#: theme-options.php:229
+msgid "Reddit Profile"
+msgstr ""
+
+#: theme-options.php:239
+msgid "LastFm Profile"
+msgstr ""
+
+#: theme-options.php:249
+msgid "Vimeo Profile"
+msgstr ""
+
+#: theme-options.php:259
+msgid "Youtube Profile"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "WPMedium"
+msgstr ""
+
+#. #-#-#-#-#  WPMedium.pot (WPMedium 1.0)  #-#-#-#-#
+#. Theme URI of the plugin/theme
+#. #-#-#-#-#  WPMedium.pot (WPMedium 1.0)  #-#-#-#-#
+#. Author URI of the plugin/theme
+msgid "http://www.caercam.org/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Clean and simple Medium like WordPress theme"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Charlie MERLAND"
+msgstr ""
