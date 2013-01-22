@@ -313,6 +313,13 @@ function wpmedium_wp_head() {
 ?>
     </style>
 <?php
+    
+    if ( $options['general']['toggle_ajax'] == 1 ) {
+        wp_register_script( 'wpmedium-ajax-browsing', get_template_directory_uri() . '/inc/js/wpmedium-ajax-browsing.js', array( 'jquery' ) );
+        wp_register_script( 'history', get_template_directory_uri() . '/inc/js/jquery.history.js', array( 'jquery' ) );
+        wp_enqueue_script( 'wpmedium-ajax-browsing' );
+        wp_enqueue_script( 'history' );
+    }
 }
 add_action('wp_enqueue_scripts', 'wpmedium_wp_head');
 

@@ -38,7 +38,7 @@ $wpmedium_options = array(
                         'value' => get_template_directory_uri().'/images/wp-badge.png',
                     ),
                 ),
-                array(
+                /*array(
                     '_id'         => 'toggle_ajax',
                     '_title'      => __( 'Ajax Browsing', 'wpmedium' ),
                     '_options'    => array(
@@ -47,7 +47,7 @@ $wpmedium_options = array(
                         'label' => __( 'Toggle Ajax Browsing', 'wpmedium' ),
                         'value' => '',
                     ),
-                ),
+                ),*/
             ),
         ),
         'display_options' => array(
