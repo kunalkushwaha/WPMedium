@@ -303,7 +303,7 @@ function wpmedium_wp_head() {
         echo '    a {color: '.$options['display']['link_color'].' !important;}'."\n";
     // link_hover_color
     if ( $options['display']['link_hover_color'] != '' )
-        echo '    a:hover {color: '.$options['display']['link_color'].' !important;}'."\n";
+        echo '    a:hover {color: '.$options['display']['link_hover_color'].' !important;}'."\n";
     // header_title_color
     if ( $options['display']['header_title_color'] != '' )
         echo '    .entry-header .entry-title a {color: '.$options['display']['header_title_color'].' !important;}'."\n";

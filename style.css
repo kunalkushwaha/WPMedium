@@ -884,6 +884,28 @@ a, a:hover {
         width: 370px !important;
     }
     
+    .site-menu, .archive-menu {
+        overflow: visible;
+        height: auto;
+    }
+    
+    .site-menu {
+        border: 0;
+    }
+    
+    .site-menu ul {
+        height: 100%;
+    }
+    
+    .site-menu li {
+        display: inline-block;
+        float: none;
+    }
+    
+    .site-menu a {
+        border: 0;
+    }
+    
     .site-header h1, .site-header h2 {
         width: 370px !important;
     }
@@ -934,6 +956,28 @@ a, a:hover {
     .site-categories,
     .archive-menu {
         width: 300px !important;
+    }
+    
+    .site-menu, .archive-menu {
+        overflow: visible;
+        height: auto;
+    }
+    
+    .site-menu {
+        border: 0;
+    }
+    
+    .site-menu ul {
+        height: 100%;
+    }
+    
+    .site-menu li {
+        display: inline-block;
+        float: none;
+    }
+    
+    .site-menu a {
+        border: 0;
     }
     
     .site-header h1, .site-header h2 {
