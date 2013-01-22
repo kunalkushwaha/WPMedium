@@ -8,14 +8,10 @@ get_header(); ?>
     
     <div id="home" class="hfeed site">
 
-<?php $header_image = get_header_image();
-if ( ! empty( $header_image ) ) : ?>
-      <header id="masthead" class="site-header" role="banner" style="background-image:url(<?php echo esc_url( $header_image ); ?>);">
+     <header id="masthead" class="site-header" role="banner" style="background-image:url(<?php wpmedium_the_header_image(); ?>);">
         
         <div class="site-header-overlay"></div>
-<?php else : ?>
-      <header id="masthead" class="site-header" role="banner">
-<?php endif; ?>
+        
         <hgroup>
           <div class="site-logo"><?php the_site_logo(); ?></div>
           <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>

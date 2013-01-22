@@ -6,9 +6,6 @@ load_theme_textdomain( 'wpmedium', get_template_directory() . '/lang' );
 // Adds RSS feed links to <head> for posts and comments.
 add_theme_support( 'automatic-feed-links' );
 
-// This theme supports a variety of post formats.
-//add_theme_support( 'post-formats', array( 'aside', 'image', 'link', 'quote', 'status' ) );
-
 // Useless, but required...
 register_sidebar( array( 'name' => 'some sidebar' ) );
 
@@ -17,6 +14,7 @@ register_nav_menu( 'primary', __( 'Primary Menu', 'wpmedium' ) );
 
 // This theme uses a custom image size for featured images, displayed on "standard" posts.
 add_theme_support( 'post-thumbnails' );
+
 // Unlimited height, soft crop
 set_post_thumbnail_size( 624, 9999 );
 
@@ -31,20 +29,52 @@ $options['display'] = get_option( 'wpmedium_theme_display_options' );
 $options['social']  = get_option( 'wpmedium_theme_social_options'  );
 
 // Custom methods
+
+/**
+ * Get shorter excerpt. Some times we just need less than 55 words
+ */
 function get_short_excerpt( $excerpt, $length = 15 ) {
     return implode( ' ', array_slice( explode( ' ', strip_shortcodes( strip_tags( $excerpt ) ) ), 0, $length ) ).' [...]';
 }
 
+/**
+ * Get longer excerpt. Some times we just need more than 55 words
+ */
 function get_long_excerpt( $excerpt, $length = 125 ) {
     return implode( ' ', array_slice( explode( ' ', strip_shortcodes( strip_tags( $excerpt ) ) ), 0, $length ) ).' [...]';
 }
 
+/**
+ * Display shorter excerpt.
+ */
 function the_short_excerpt( $excerpt, $length = 15 ) {
     echo get_short_excerpt( $excerpt, $length );
 }
 
+/**
+ * Display longer excerpt.
+ */
 function the_long_excerpt( $excerpt, $length = 125 ) {
     echo get_long_excerpt( $excerpt, $length );
+}
+
+/**
+ * Return the header image path. If no header image is defined,
+ * use the default one.
+ */
+function wpmedium_get_header_image() {
+    $header_image = get_header_image();
+    if ( ! empty( $header_image ) )
+        return $header_image;
+    else
+        return get_template_directory_uri() . '/images/wpmedium-header.jpg';
+}
+
+/**
+ * Display header image path
+ */
+function wpmedium_the_header_image() {
+    echo wpmedium_get_header_image();
 }
 
 function wpmedium_post_thumbnail() {
@@ -53,7 +83,7 @@ function wpmedium_post_thumbnail() {
     if ( has_post_thumbnail( $post->ID ) )
         $ret = get_the_post_thumbnail( $post->ID );
     else
-        $ret = '<img src="'.get_template_directory_uri().'/images/post_thumbnail.jpg" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image" />';
+        $ret = '<img src="'.get_template_directory_uri().'/images/wpmedium-post-thumbnail.jpg" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image" />';
     
     return $ret;
 }
