@@ -566,43 +566,52 @@ a, a:hover {
  * Single page
  */
 
-.single-author .entry-meta .by-author {
+/*.single-author .entry-meta .by-author {
     display: inline-block;
-}
+}*/
 
-#single #main {
+#single #main,
+#page #main {
     width: 640px;
 }
 
-#single article.post {
+#single article,
+#page article {
     background: transparent;
     box-shadow: 0 0 0;
     width: 640px;
 }
 
-#single .entry-title, #single .entry-content {
+#single .entry-title,
+#single .entry-content,
+#page .entry-title,
+#page .entry-content {
     padding: 0;
 }
 
-#single .entry-title {
+#single .entry-title,
+#page .entry-title {
     font-size: 4.5em;
     margin: 25px 0;
 }
 
-#single .entry-thumb {
+#single .entry-thumb,
+#page .entry-thumb {
     margin: 0 0 15px 0;
     position: relative;
     width: 640px;
 }
 
-#single .entry-thumb img {
+#single .entry-thumb img,
+#page .entry-thumb img {
     border-radius: 4px;
     height: auto;
     margin: 0;
     width: 640px;
 }
 
-#single .entry-thumb .entry-thumb-credit {
+#single .entry-thumb .entry-thumb-credit,
+#page .entry-thumb .entry-thumb-credit {
     background: rgba(0, 0, 0, 0.65);
     border-radius: 2px 0 2px 0;
     color: #ccc;
@@ -612,7 +621,8 @@ a, a:hover {
     right: 0;
 }
 
-#single .entry-meta {
+#single .entry-meta,
+#page .entry-meta {
     border: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     font-size: 1em;
@@ -620,24 +630,31 @@ a, a:hover {
     width: 100%;
 }
 
-#single .entry-meta .by-author,  #single .entry-meta .in-category {
+#single .entry-meta .by-author,
+#single .entry-meta .in-category,
+#page .entry-meta .by-author,
+#page .entry-meta .in-category {
     font-weight: bold;
     text-transform: uppercase;
 }
 
-#single .entry-meta a {
+#single .entry-meta a,
+#page .entry-meta a {
     color: #5773AD !important;
 }
 
-#single .entry-meta a:hover {
+#single .entry-meta a:hover,
+#page .entry-meta a:hover {
     color: #45568C !important;
 }
 
-#single .entry-content {
+#single .entry-content,
+#page .entry-content {
     font-size: 1.5em;
 }
 
-#single .entry-tags {
+#single .entry-tags,
+#page .entry-tags {
     background: #ccc;
     border-radius: 4px;
     font-size: 1em;
@@ -645,53 +662,63 @@ a, a:hover {
     padding: 6px 8px;
 }
 
-#single .entry-tags:hover {
+#single .entry-tags:hover,
+#page .entry-tags:hover {
     opacity: 1;
 }
 
 #single .entry-tags,
-#single .entry-tags:hover {
+#single .entry-tags:hover,
+#page .entry-tags,
+#page .entry-tags:hover {
     -webkit-transition: opacity 0.5s ease;
     -moz-transition: opacity 0.5s ease;
     -o-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
 }
 
-#single .entry-author {
+#single .entry-author,
+#page .entry-author {
     border-top: 3px solid #ccc;
     font-size: 1.5em;
     margin-top: 50px;
     padding: 25px;
 }
 
-#single .entry-author .author-avatar {
+#single .entry-author .author-avatar,
+#page .entry-author .author-avatar {
     float: left;
     width: 75px;
 }
 
-#single .entry-author .author-description {
+#single .entry-author .author-description,
+#page .entry-author .author-description {
     float: left;
     margin-left: 12px;
     min-height: 85px;
     width: 352px;
 }
 
-#single .entry-author .author-avatar img {
+#single .entry-author .author-avatar img,
+#page .entry-author .author-avatar img {
     border-radius: 68px;
     height: 68px;
     width: 68px;
 }
 
-#single .entry-author .author-description h6 {
+#single .entry-author .author-description h6,
+#page .entry-author .author-description h6 {
     margin: 6px 0;
 }
 
-#single .entry-author .author-description p {
+#single .entry-author .author-description p,
+#page .entry-author .author-description p {
     font-size: 0.8em;
     line-height: 1.2em;
 }
 
-#single .entry-date {
+#single .entry-date,
+#page .entry-date {
     border-left: 1px solid #ddd;
     color: #444;
     font-size: 0.75em;
@@ -701,11 +728,13 @@ a, a:hover {
     padding-left: 24px;
 }
 
-#single .entry-date h6 {
+#single .entry-date h6,
+#page .entry-date h6 {
     margin: 6px 0;
 }
 
-#single .entry-date .date {
+#single .entry-date .date,
+#page .entry-date .date {
     font-style: italic;
 }
 
@@ -827,7 +856,7 @@ a, a:hover {
 }
 
 #archive .entry-meta,
-#page .entry-meta {
+#home .entry-meta {
     bottom: 0;
     position: absolute;
     width: 315px;

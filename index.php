@@ -6,7 +6,7 @@
  */
 get_header(); ?>
     
-    <div id="page" class="hfeed site">
+    <div id="home" class="hfeed site">
 
 <?php $header_image = get_header_image();
 if ( ! empty( $header_image ) ) : ?>
