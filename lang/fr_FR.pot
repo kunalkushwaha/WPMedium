@@ -44,257 +44,257 @@ msgstr "Page suivante &rarr;"
 
 #: archive.php:66 index.php:77 single.php:68
 msgid "No posts"
-msgstr "No posts"
+msgstr "Aucun article"
 
 #: archive.php:70
 msgid "Get Started %s"
-msgstr "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr "Prêt à publier votre premier article ? <a href=\"%s\">Par ici</a>."
 
 #: archive.php:74 index.php:85 single.php:77
 msgid "Nothing Found"
-msgstr "Nothing found"
+msgstr "Aucun résultat"
 
 #: archive.php:78 single.php:81
 msgid "No Results Found"
-msgstr "Apologies, but no results were found. Perhaps searching will help find a related post."
+msgstr "Désolé, aucun résultat… Une recherche vous permettra peut-être de trouver votre bonheur ?"
 
 #: archive.php:84 archive.php:87
 msgid "Coming soon"
-msgstr "Coming soon"
+msgstr "Bientôt"
 
 #: comments.php:9
 msgid "One thought on %2$s"
 msgid_plural "%1$s thoughts on %2$s"
-msgstr[0] "One thought on &laquo; %2$s &raquo;"
-msgstr[1] "%1$s thoughts on &laquo; %2$s &raquo;"
+msgstr[0] "Une réponse à &laquo; %2$s &raquo;"
+msgstr[1] "%1$s réponses à &laquo; %2$s &raquo;"
 
 #: comments.php:16
 msgid "Comment navigation"
-msgstr "Comment navigation"
+msgstr "Commentaires"
 
 #: comments.php:17
 msgid "Older Comments"
-msgstr "&larr; Older Comments"
+msgstr "&larr; Commentaires plus anciens"
 
 #: comments.php:18
 msgid "Newer Comments"
-msgstr "Newer Comments &rarr;"
+msgstr "Commentaires plus récents &rarr;"
 
 #: comments.php:23
 msgid "Comments are closed"
-msgstr "Comments are closed."
+msgstr "Les commentaires sont désactivés."
 
 #: functions.php:16
 msgid "Primary Menu"
-msgstr "Primary Menu"
+msgstr "Menu principal"
 
 #: functions.php:100 functions.php:104
 msgid "Recommend"
-msgstr "Recommend"
+msgstr "Recommendés"
 
 #: functions.php:101 functions.php:105
 msgid "Recent"
-msgstr "Recent"
+msgstr "Récents"
 
 #: functions.php:121 functions.php:125
 msgid "Newest"
-msgstr "Newest"
+msgstr "Récents"
 
 #: functions.php:122 functions.php:126
 msgid "Oldest"
-msgstr "Oldest"
+msgstr "Anciens"
 
 #: functions.php:249
 msgid "Category Image"
-msgstr "Category custom image"
+msgstr "Image d’aperçu de la catégorie"
 
 #: functions.php:260
 msgid "Upload Image"
-msgstr "Upload category image"
+msgstr "Ajouter une image"
 
 #: functions.php:261
 msgid "Delete Image"
-msgstr "Delete category image"
+msgstr "Supprimer l’image"
 
 #: functions.php:262
 msgid "Category Image Help"
-msgstr "Preview image is an image displayed above the category's title in the page's header; use it to illustrate your categories! Upload your images using the media center and paste URL here."
+msgstr "L’image d’aperçu de la catégorie est une image affichée dans l’en-tête de la page de la catégorie, au-dessus du titre. Utilisez des images pour illustrer vos catégories ! Si vous ne choisissez par d’image personnalisée, la miniature du dernier article publié dans la catégorie sera utilisé. En cas de catégorie vide, le logo du site apparaîtra."
 
 #: functions.php:379
 msgid "WPMedium Theme Options"
-msgstr "WPMedium Theme Options"
+msgstr "WPMedium, Options du thème"
 
 #: functions.php:469
 msgid "Upload Logo"
-msgstr "Upload a logo"
+msgstr "Ajouter un logo"
 
 #: functions.php:471
 msgid "Delete Logo"
-msgstr "Delete the logo"
+msgstr "Supprimer le logo"
 
 #: functions.php:563
 msgid "Use As Logo"
-msgstr "Use as logo"
+msgstr "Utiliser commme logo"
 
 #: single.php:38
 msgid "This post has been tagged as"
-msgstr "This post has been tagged as"
+msgstr "Cet article a été taggué "
 
 #: single.php:55
 msgid "Published"
-msgstr "Published"
+msgstr "Publié"
 
 #: theme-options.php:26
 msgid "General Settings"
-msgstr "General Settings"
+msgstr "Options générales"
 
 #: theme-options.php:29
 msgid "General Settings Help"
-msgstr "General settings concern your site's global settings."
+msgstr "Les options générales concernent les paramètres principaux du thème et de votre site."
 
 #: theme-options.php:33
 msgid "Site Logo"
-msgstr "Site logo"
+msgstr "Logo du site"
 
 #: theme-options.php:36
 msgid "Site Logo Help"
-msgstr "Use WorpPress media upload tool to select or import a logo for your website. This logo will displayed in your homepage's header and will be considered a default image for categories' custom images."
+msgstr "Utilisez la bibliothèque média de WorpPress pour sélection ou importer un logo pour votre site. Ce logo sera affiché sur votre page d’accueil et sera utilisé comme aperçu par défaut des catégories vides."
 
 #: theme-options.php:43
 msgid "Ajax Browsing"
-msgstr "Ajax Browsing"
+msgstr "Navigation Ajax"
 
 #: theme-options.php:46
 msgid "Ajax Browsing Help"
-msgstr "Ajax browsing allow your visitors to access your website dynamically and display new posts without reloading the page. Also allow infinity scroll on your archives."
+msgstr "La navigation Ajax permet à vos visiteur de naviguer sur votre site en chargeant le contenu dynamiquement à chaque clic sans devoir changer de page. Activer cette option permet également d‘afficher en continu les articles dans les pages d’archives."
 
 #: theme-options.php:47
 msgid "Toggle Ajax Browsing"
-msgstr "Toggle Ajax browsing"
+msgstr "Activer la navigation Ajax"
 
 #: theme-options.php:55
 msgid "Display Settings"
-msgstr "Display Settings"
+msgstr "Options d’affichage"
 
 #: theme-options.php:58
 msgid "Display Settings Help"
-msgstr "Display settings allow you to customize WPMedium's colors. Beware to use well chosen colors less you want to ruin your look n' feel :)"
+msgstr "Les options d’affichage vous permettent de personnaliser votre thème WPMedium. Prenez garde à bien choisir des couleurs élégantes et compatibles pour ne pas ruiner l’apparence de votre site :)"
 
 #: theme-options.php:63
 msgid "Background Color"
-msgstr "Background oolor"
+msgstr "Couleur d’arrière-plan"
 
 #: theme-options.php:66
 msgid "Background Color Help %s"
-msgstr "Pages background color, default value is %s"
+msgstr "Couleur d'arrière-plan de vos pages, par défault %s"
 
 #: theme-options.php:74
 msgid "Text Color"
-msgstr "Text color"
+msgstr "Couleur de texte"
 
 #: theme-options.php:77
 msgid "Text Color Help %s"
-msgstr "Pages text color, default value is %s"
+msgstr "Couleur de texte de vos pages, par défault %s"
 
 #: theme-options.php:85
 msgid "Header Overlay Color"
-msgstr "Header overlay color"
+msgstr "Couleur de l’en-tête"
 
 #: theme-options.php:88
 msgid "Header Overlay Color Help %s"
-msgstr "Header overlay color, default value is %s"
+msgstr "Couleur de l’en-tête. Utilisez ce paramètre pour ajouter un couleur semi-transparente par-dessus l’image d’en-tête de votre site. Par défault %s"
 
 #: theme-options.php:96
 msgid "Header Overlay Opacity"
-msgstr "Header overlay opacity"
+msgstr "Opacité de l’en-tête"
 
 #: theme-options.php:99
 msgid "Header Overlay Opacity Help %s"
-msgstr "Header overlay opacity. Use this to soften/harden header overlay color, default value is %s. Set to 0 to full transparency, 100 to full opacity."
+msgstr "Header overlay opacity. Use this to soften/harden header overlay color, par défault %s. Set to 0 to full transparency, 100 to full opacity."
 
 #: theme-options.php:107
 msgid "Link Color"
-msgstr "Link color"
+msgstr "Couleur des liens"
 
 #: theme-options.php:110
 msgid "Link Color Help %s"
-msgstr "Color of most of your website's links, default value is %s"
+msgstr "La couleur principale des liens, par défault %s"
 
 #: theme-options.php:118
 msgid "Link Hover Color"
-msgstr "Link hover color"
+msgstr "Couleur des liens survolés"
 
 #: theme-options.php:121
 msgid "Link Hover Color Help %s"
-msgstr "Color of most of your website's hovered links, default value is %s"
+msgstr "La couleurs des liens survolés, par défault %s"
 
 #: theme-options.php:129
 msgid "Title Color"
-msgstr "Title color"
+msgstr "Couleur des titres"
 
 #: theme-options.php:132
 msgid "Title Color Help %s"
-msgstr "Color of your posts' title link, default value is %s"
+msgstr "La couleur des titres des vos articles, par défault %s"
 
 #: theme-options.php:140
 msgid "Title Hover Color"
-msgstr "Title hover color"
+msgstr "Couleur des titres survolés"
 
 #: theme-options.php:143
 msgid "Title Hover Color Help %s"
-msgstr "Color of your posts' title hovered link, default value is %s"
+msgstr "La couleur des titres survolés des vos articles, par défault %s"
 
 #: theme-options.php:152
 msgid "Social Settings"
-msgstr "Social Settings"
+msgstr "Réseaux sociaux"
 
 #: theme-options.php:155
 msgid "Social Settings Help"
-msgstr "Social settings allow you to add your social profiles' URL. Each supplied network URL will be displayed with a small icon appearing in your homepage's header right below your website's description."
+msgstr "Ajoutez ici les liens vers vos profils sur les réseaux sociaux. Chaque réseau renseigné apparaîtra dans l’en-tête de votre page d’accueil sous la forme d’une petite icône juste sous la description de votre site."
 
 #: theme-options.php:159
 msgid "Facebook Profile"
-msgstr "Facebook profile"
+msgstr "Profil Facebook"
 
 #: theme-options.php:169
 msgid "Twitter Profile"
-msgstr "Twitter profile"
+msgstr "Profil Twitter"
 
 #: theme-options.php:179
 msgid "Google+ Profile"
-msgstr "Google+ profile"
+msgstr "Profil Google+"
 
 #: theme-options.php:189
 msgid "Flickr Profile"
-msgstr "Flickr account"
+msgstr "Profil Flickr"
 
 #: theme-options.php:199
 msgid "DeviantArt Profile"
-msgstr "DeviantArt account"
+msgstr "Profil DeviantArt"
 
 #: theme-options.php:209
 msgid "Blogger Profile"
-msgstr "Blogger profile"
+msgstr "Profil Blogger"
 
 #: theme-options.php:219
 msgid "Tumblr Profile"
-msgstr "Tumblr blog"
+msgstr "Blog Tumblr"
 
 #: theme-options.php:229
 msgid "Reddit Profile"
-msgstr "Reddit profile"
+msgstr "Profil Reddit"
 
 #: theme-options.php:239
 msgid "LastFm Profile"
-msgstr "LastFm profile"
+msgstr "Profil LastFm"
 
 #: theme-options.php:249
 msgid "Vimeo Profile"
-msgstr "Vimeo account"
+msgstr "Profil Vimeo"
 
 #: theme-options.php:259
 msgid "Youtube Profile"
-msgstr "Youtube account"
+msgstr "Profil Youtube"
 
 #. Theme Name of the plugin/theme
 msgid "WPMedium"

@@ -26,7 +26,7 @@ get_header(); ?>
             <ul class="archive-controls">
               <?php the_archive_controls(); ?>
             </ul>
-            <span class="archive-infos archive-post-count"><?php printf( _n( '%d Post', '%d Posts', get_category_count() ), get_category_count() ); ?></span>
+            <span class="archive-infos archive-post-count"><?php printf( _n( '%d Post', '%d Posts', get_category_count(), 'wpmedium' ), get_category_count() ); ?></span>
             <span class="archive-infos archive-post-backlink"><?php printf( __( 'Posted On %s %s', 'wpmedium' ), ''.home_url(), get_bloginfo( 'name' ) ); ?></span>
           </nav>
           

@@ -41,7 +41,7 @@ if ( ! empty( $header_image ) ) : ?>
           <nav class="site-categories">
             <ul class="site-categories-order">
               <?php the_index_controls(); ?>
-              <li class="site-categories-count"><a><?php printf( _n( '%d Post', '%d Posts', $wp_query->found_posts ), $wp_query->found_posts ); ?></a></li>
+              <li class="site-categories-count"><a><?php printf( _n( '%d Post', '%d Posts', $wp_query->found_posts, 'wpmedium' ), $wp_query->found_posts ); ?></a></li>
             </ul>
           </nav>
           
