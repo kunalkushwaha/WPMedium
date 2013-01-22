@@ -35,7 +35,7 @@ $wpmedium_options = array(
                         'id'    => 'site_logo',
                         'help'  => sprintf( __( 'Site Logo Help', 'wpmedium' ) ),
                         'label' => '',
-                        'value' => '',
+                        'value' => get_template_directory_uri().'/images/wp-badge.png',
                     ),
                 ),
                 array(
