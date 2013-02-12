@@ -698,7 +698,7 @@ a, a:hover {
     float: left;
     margin-left: 12px;
     min-height: 85px;
-    width: 352px;
+    width: 325px;
 }
 
 #single .entry-author .author-avatar img,
@@ -725,7 +725,7 @@ a, a:hover {
     color: #444;
     font-size: 0.75em;
     float: left;
-    margin-left: 24px;
+    margin-left: 20px;
     min-height: 85px;
     padding-left: 24px;
 }
@@ -868,7 +868,7 @@ a, a:hover {
 }
 
 #archive .entry-header img.wp-post-image,
-#homee .entry-header img.wp-post-image {
+#home .entry-header img.wp-post-image {
 	bottom: 0;
 	margin-bottom: 0;
 	min-height: auto;
