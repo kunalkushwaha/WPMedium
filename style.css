@@ -857,6 +857,26 @@ a, a:hover {
     float: right;
 }
 
+#archive .entry-header,
+#home .entry-header {
+	
+}
+
+#archive .entry-header-image,
+#home .entry-header-image {
+	position: relative;
+}
+
+#archive .entry-header img.wp-post-image,
+#homee .entry-header img.wp-post-image {
+	bottom: 0;
+	margin-bottom: 0;
+	min-height: auto;
+	height: auto;
+	position: absolute;
+	width: 100%;
+}
+
 #archive .entry-meta,
 #home .entry-meta {
     bottom: 0;
