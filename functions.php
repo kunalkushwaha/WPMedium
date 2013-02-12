@@ -122,9 +122,10 @@ function wpmedium_post_thumbnail_credit() {
     global $post;
     
     if ( has_post_thumbnail( $post->ID ) )
-        $ret = sprintf( '<span class="entry-thumb-credit">%s</span>', get_post( get_post_thumbnail_id( $post->ID ) )->post_content );
-    else
-        $ret = '';
+        if ( get_post( get_post_thumbnail_id( $post->ID ) )->post_content != '' )
+            $ret = sprintf( '<span class="entry-thumb-credit">%s</span>', get_post( get_post_thumbnail_id( $post->ID ) )->post_content );
+        else
+            $ret = '';
     
     return $ret;
 }
