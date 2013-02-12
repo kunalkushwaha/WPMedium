@@ -105,8 +105,8 @@ msgid "Oldest"
 msgstr "Oldest"
 
 #: functions.php:249
-msgid "Category Image"
-msgstr "Category custom image"
+msgid "Taxonomy Image"
+msgstr "Taxonomy custom image"
 
 #: functions.php:260
 msgid "Upload Image"
@@ -117,8 +117,8 @@ msgid "Delete Image"
 msgstr "Delete category image"
 
 #: functions.php:262
-msgid "Category Image Help"
-msgstr "Preview image is an image displayed above the category's title in the page's header; use it to illustrate your categories! Upload your images using the media center and paste URL here."
+msgid "Taxonomy Image Help"
+msgstr "Taxonomy Preview image is an image displayed above the title in the header of your categories, tags or custom taxonomies page's; use it to illustrate your taxonomies! Upload your images using the media center and paste URL here."
 
 #: functions.php:379
 msgid "WPMedium Theme Options"
@@ -145,8 +145,8 @@ msgid "Post Tag"
 msgstr "Post Tag"
 
 #: single.php:38
-msgid "This post has been tagged as"
-msgstr "This post has been tagged as "
+msgid "This also appears in"
+msgstr "This also appears in "
 
 #: single.php:55
 msgid "Published"

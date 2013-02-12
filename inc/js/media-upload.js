@@ -26,28 +26,28 @@ jQuery(document).ready(function($) {
         }
     }
     
-    if ( $('#upload_category_image').length > 0 ) {
+    if ( $('#upload_taxonomy_image').length > 0 ) {
     
-        $('#upload_category_image').click(function(e) {
-            tb_show('Mediacenter', 'media-upload.php?referer=wpmedium_category_image&type=image&TB_iframe=true&post_id=0', false);
+        $('#upload_taxonomy_image').click(function(e) {
+            tb_show('Mediacenter', 'media-upload.php?referer=wpmedium_taxonomy_image&type=image&TB_iframe=true&post_id=0', false);
             e.preventDefault();
         });
         
-        $('#delete_category_image').click(function(e) {
-            $('input#wpmedium_category_image').val('');
-            $('#upload_category_image_preview img').remove();
+        $('#delete_taxonomy_image').click(function(e) {
+            $('input#wpmedium_taxonomy_image').val('');
+            $('#upload_taxonomy_image_preview img').remove();
             $(this).hide();
         });
         
         window.send_to_editor = function(html) {
             var image_url = $('img',html).attr('src');  
-            $('input#wpmedium_category_image').val(image_url);  
+            $('input#wpmedium_taxonomy_image').val(image_url);  
             tb_remove();
-            $('#delete_category_image').show();
-            if ( $('#upload_category_image_preview img').length > 0 )
-                $('#upload_category_image_preview img').attr('src', image_url);
+            $('#delete_taxonomy_image').show();
+            if ( $('#upload_taxonomy_image_preview img').length > 0 )
+                $('#upload_taxonomy_image_preview img').attr('src', image_url);
             else
-                $('#upload_category_image_preview').html('<img style="max-width:100%;" src="'+image_url+'" />');
+                $('#upload_taxonomy_image_preview').html('<img style="max-width:100%;" src="'+image_url+'" />');
         }
     }
     

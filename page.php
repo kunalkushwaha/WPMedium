@@ -21,7 +21,7 @@ get_header(); ?>
                   <?php wpmedium_the_post_thumbnail_credit(); ?>
                 </div>
               <div class="entry-meta">
-                <?php printf( '<span class="by-author">%s</span> %s <span class="in-category">%s</span>', get_the_author_link(), __( 'In', 'wpmedium' ), wpmedium_get_the_category_list() ); ?> | <?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link">', '</span>' ); ?>
+                <?php printf( '<span class="by-author">%s</span> %s <span class="in-category">%s</span>', get_the_author_link(), __( 'In', 'wpmedium' ), wpmedium_get_the_taxonomy_list( $options['general']['default_taxonomy'] ) ); ?> | <?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link">', '</span>' ); ?>
               </div><!-- .entry-meta -->
               <h1 class="entry-title">
                 <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'wpmedium' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>

@@ -28,7 +28,17 @@ $options['general'] = get_option( 'wpmedium_theme_general_options' );
 $options['display'] = get_option( 'wpmedium_theme_display_options' );
 $options['social']  = get_option( 'wpmedium_theme_social_options'  );
 
-// Custom methods
+// Available taxonomy to be used
+$authorized_taxonomy = array( 'category',
+                              'post_tag',
+);
+
+
+/**
+ *********************************
+ *         Custom methods
+ *********************************
+ */
 
 /**
  * Get shorter excerpt. Some times we just need less than 55 words
@@ -77,7 +87,17 @@ function wpmedium_the_header_image() {
     echo wpmedium_get_header_image();
 }
 
-function wpmedium_post_thumbnail() {
+
+/**
+ *********************************
+ *    Post thumbnail support
+ *********************************
+ */
+
+/**
+ * Returns the post's thumbnail if available, default image else
+ */
+function wpmedium_get_post_thumbnail() {
     global $post;
     
     if ( has_post_thumbnail( $post->ID ) )
@@ -88,10 +108,16 @@ function wpmedium_post_thumbnail() {
     return $ret;
 }
 
+/**
+ * Display thumbnail support
+ */
 function wpmedium_the_post_thumbnail() {
-    echo wpmedium_post_thumbnail();
+    echo wpmedium_get_post_thumbnail();
 }
 
+/**
+ * If available, returns the post thumbnail's description
+ */
 function wpmedium_post_thumbnail_credit() {
     global $post;
     
@@ -101,32 +127,85 @@ function wpmedium_post_thumbnail_credit() {
         $ret = '';
     
     return $ret;
-    
 }
 
+/**
+ * Display post thumbnail's description
+ */
 function wpmedium_the_post_thumbnail_credit() {
     echo wpmedium_post_thumbnail_credit();
 }
 
-function get_category_count() {
-    $category = get_the_category();
-    return $category[0]->category_count;
+/**
+ *********************************
+ *        Taxonomy support
+ *********************************
+ */
+
+/**
+ * Get the taxonomy count
+ */
+function wpmedium_get_taxonomy_count() {
+    global $authorized_taxonomy, $term;
+    $r = '';
+    
+    if ( !in_array( $term->taxonomy, $authorized_taxonomy ) )
+        return false;
+    
+    $taxonomy = get_term_by( 'id', $term->term_id, $term->taxonomy );
+    return $taxonomy->count;
 }
 
-function wpmedium_get_the_category_list( $limit = 3 ) {
-    $categories = explode( ', ', get_the_category_list( ', ' ) );
-    if ( count( $categories ) > $limit )
-        return implode( ', ', array_slice( $categories, 0, $limit ) ) . ', <a href="'.get_permalink().'">...</a>';
-    else
-        return get_the_category_list( ', ' );
+/**
+ * Get the taxonomy list
+ */
+function wpmedium_get_the_taxonomy_list( $taxonomy_type = 'category', $limit = 3 ) {
+    global $authorized_taxonomy, $post;
+    $r = '';
+    
+    if ( !in_array( $taxonomy_type, $authorized_taxonomy ) )
+        return false;
+    
+    $taxonomy = get_the_term_list( $post->ID, $taxonomy_type, '', ', ', '' );
+    $t = explode( ', ', $taxonomy );
+    
+    if ( count( $t ) > $limit )
+        $taxonomy = implode( ', ', array_slice( $t, 0, $limit ) ) . ', <a href="'.get_permalink().'">...</a>';
+    
+    return $taxonomy;
 }
+
+function wpmedium_get_the_taxonomy( $before = '', $sep = ', ', $after = '' ) {
+    global $authorized_taxonomy, $options, $post;
+    $r = array();
+    
+    if ( $options['general']['default_taxonomy'] == 'category' )
+        $taxonomy_type = 'post_tag';
+    else if ( $options['general']['default_taxonomy'] == 'post_tag' )
+        $taxonomy_type = 'category';
+    
+    $terms = get_the_terms( $post->ID, $taxonomy_type );
+    
+    foreach( $terms as $term )
+        $r[] = '<a href="'.get_term_link( $term->slug, $taxonomy_type ).'">'.$term->name.'</a>';
+    
+    $terms = implode( $sep, $r );
+    
+    return $before.$terms.$after;
+}
+
+function wpmedium_the_taxonomy( $before = '', $sep = ', ', $after = '' ) {
+    echo wpmedium_get_the_taxonomy( $before, $sep, $after );
+}
+
+
 
 function get_archive_controls() {
     
     $recommended = '';
     $recent      = '';
     
-    if ( $_GET['order_by'] == '' || $_GET['order_by'] == 'comment_count' ) {
+    if ( !isset( $_GET['order_by'] ) || ( $_GET['order_by'] == '' || $_GET['order_by'] == 'comment_count' ) ) {
         $recommended .= '<li class="archive-recommended-posts"><span class="active">'.__( 'Recommend', 'wpmedium' ).'</span></li>';
         $recent      .= '<li class="archive-recent-posts"><a href="?order_by=date&amp;order=DESC" class="">'.__( 'Recent', 'wpmedium' ).'</a></li>';
     }
@@ -147,7 +226,7 @@ function get_index_controls() {
     $newest = '';
     $oldest = '';
     
-    if ( $_GET['order'] == '' || $_GET['order'] == 'DESC' ) {
+    if ( !isset( $_GET['order'] ) || ( $_GET['order'] == '' || $_GET['order'] == 'DESC' ) ) {
         $newest .= '<li class="site-categories-newest"><a class="active" href="?order=DESC">'.__( 'Newest', 'wpmedium' ).'</a></li>';
         $oldest .= '<li class="site-categories-oldest"><a href="?order=ASC">'.__( 'Oldest', 'wpmedium' ).'</a></li>';
     }
@@ -196,48 +275,41 @@ function the_social_links() {
 
 
 /**
- * Taxonomy images
+ * Return the custom taxonomy image
+ * If no image is properly defined, fallback to the latest taxonomy's post
+ * thumbnail. If the taxonomy is empty, use the theme's logo
  */
-function get_the_taxonomy_image( $taxonomy_type = 'category' ) {
+function wpmedium_get_the_taxonomy_image() {
+    global $authorized_taxonomy, $options, $term;
     
-    $authorized_taxonomy = array( 'category',
-                                  'post_tag',
-    );
+    $ret = '';
     
-    if ( !in_array( $taxonomy_type, $authorized_taxonomy ) )
+    if ( !in_array( $term->taxonomy, $authorized_taxonomy ) )
         return false;
     
-    if ( $taxonomy_type == 'category' )
-        get_the_category_image();
-    else if ( $taxonomy_type == 'category' )
-        get_the_post_tag_image();
-    else
-        return false;
-}
-
-/**
- * Return the custom category image
- * If no image is properly defined, fallback to the latest category's post
- * thumbnail. If the category is empty, use the theme's logo
- */
-function get_the_category_image() {
-    
-    global $options;
-    
-    $category = get_the_category();
-    
-    if ( $category ) {
+    if ( $term ) {
         
-        $category_images = get_option( 'wpmedium_category_images' );
-        $category_image = '';
+        $taxonomy_images = get_option( 'wpmedium_taxonomy_images' );
+        $taxonomy_image  = '';
         
-        if ( is_array( $category_images ) && array_key_exists( $category[0]->term_id, $category_images ) && $category_images[$category[0]->term_id] != '' ) {
-            $ret = $category_images[$category[0]->term_id];
+        if ( is_array( $taxonomy_images ) && array_key_exists( $term->term_id, $taxonomy_images ) && $taxonomy_images[$term->term_id] != '' ) {
+            $ret = $taxonomy_images[$term->term_id];
         }
         else {
-            $category_posts = get_posts( array( 'numberposts' => 1, 'category' => $category[0]->term_id ) );
-            if ( has_post_thumbnail( $category_posts[0]->ID ) ) {
-                $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $category_posts[0]->ID ), 'medium' );
+            $query = new WP_Query( array(
+                'post_type' => 'post',
+                'tax_query' => array(
+                   array(
+                      'taxonomy' => $term->taxonomy,
+                      'field' => 'id',
+                      'terms' => $term->term_id,
+                   ),
+                ),
+            ) );
+            $post_ = $query->posts[0];
+            
+            if ( has_post_thumbnail( $post_->ID ) ) {
+                $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post_->ID ), 'medium' );
                 $ret = $thumbnail[0];
             }
         }
@@ -245,16 +317,94 @@ function get_the_category_image() {
     else {
         $ret = $options['general']['site_logo'];
     }
-    
     return $ret;
 }
 
 /**
- * Display the custom category image
+ * Display the custom taxonomy image
  */
-function the_category_image() {
-    echo get_the_category_image();
+function wpmedium_the_taxonomy_image() {
+    echo wpmedium_get_the_taxonomy_image();
 }
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Add custom images to display along with category description and title
+ * selection/upload using WP media-upload
+ */
+function wpmedium_add_taxonomy_image( $taxonomy ) {
+    
+    $taxonomy_images = get_option( 'wpmedium_taxonomy_images' );
+    $taxonomy_image = '';
+    
+    if ( is_array( $taxonomy_images ) && array_key_exists( $taxonomy->term_id, $taxonomy_images ) )
+        $taxonomy_image = $taxonomy_images[$taxonomy->term_id] ;
+    
+    if ( '' != $taxonomy_image )
+        $style = 'style="width: 100px;"';
+    else
+        $style = 'style="display:none;width: 100px;"';
+?>
+	<table class="form-table">
+		<tr class="form-field form-required">
+			<th scope="row" valign="top">
+				<label for="auteur_revue_image"><?php _e( 'Taxonomy Image', 'wpmedium' ); ?></label>
+			</th>
+			<td>
+				<div id="upload_taxonomy_image_preview" style="">
+<?php ?>
+<?php if ( '' != $taxonomy_image ) { ?>
+					<img style="max-width:100%;" src="<?php echo $taxonomy_image; ?>" />
+<?php } ?>
+				</div>
+				
+				<input type="hidden" id="wpmedium_taxonomy_image" name="wpmedium_taxonomy_image" value="<?php echo $taxonomy_image; ?>" />
+				<input id="upload_taxonomy_image" type="button" class="button-primary" value="<?php _e( 'Upload Image', 'wpmedium' ); ?>" style="width: 100px;" />
+				<input id="delete_taxonomy_image" name="wpmedium_taxonomy_image_delete" type="submit" class="button-primary" value="<?php _e( 'Delete Image', 'wpmedium' ); ?>" <?php echo $style; ?> />
+				<p class="description"><?php _e( 'Taxonomy Image Help', 'wpmedium' ); ?></p>
+			</td>
+		</tr>
+<?php
+}
+add_action ( 'edit_category_form_fields', 'wpmedium_add_taxonomy_image' );
+add_action ( 'edit_tag_form_fields', 'wpmedium_add_taxonomy_image' );
+
+/**
+ * Save previously selected custom category images
+ */
+function save_image( $term_id ){
+    if ( isset( $_POST['wpmedium_taxonomy_image'] ) ) {
+        $taxonomy_images = get_option( 'wpmedium_taxonomy_images' );
+        $taxonomy_images[$term_id] =  $_POST['wpmedium_taxonomy_image'];
+        update_option( 'wpmedium_taxonomy_images', $taxonomy_images );
+    }
+}
+add_action ( 'edited_term', 'save_image' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Hexadecimal to RGB color conversion
@@ -277,57 +427,12 @@ function hex2rgb( $colour ) {
     return array( 'red' => $r, 'green' => $g, 'blue' => $b );
 }
 
-/**
- * Add custom images to display along with category description and title
- * selection/upload using WP media-upload
- */
-function add_image_cat( $taxinomy ) {
-    
-    $category_images = get_option( 'wpmedium_category_images' );
-    $category_image = '';
-    
-    if ( is_array( $category_images ) && array_key_exists( $taxinomy->term_id, $category_images ) )
-        $category_image = $category_images[$taxinomy->term_id] ;
-    
-    if ( '' != $category_image )
-        $style = 'style="width: 100px;"';
-    else
-        $style = 'style="display:none;width: 100px;"';
-?>
-	<table class="form-table">
-		<tr class="form-field form-required">
-			<th scope="row" valign="top">
-				<label for="auteur_revue_image"><?php _e( 'Category Image', 'wpmedium' ); ?></label>
-			</th>
-			<td>
-				<div id="upload_category_image_preview" style="">
-<?php ?>
-<?php if ( '' != $category_image ) { ?>
-					<img style="max-width:100%;" src="<?php echo $category_image; ?>" />
-<?php } ?>
-				</div>
-				
-				<input type="hidden" id="wpmedium_category_image" name="wpmedium_category_image" value="<?php echo $category_image; ?>" />
-				<input id="upload_category_image" type="button" class="button-primary" value="<?php _e( 'Upload Image', 'wpmedium' ); ?>" style="width: 100px;" />
-				<input id="delete_category_image" name="wpmedium_category_image_delete" type="submit" class="button-primary" value="<?php _e( 'Delete Image', 'wpmedium' ); ?>" <?php echo $style; ?> />
-				<p class="description"><?php _e( 'Category Image Help', 'wpmedium' ); ?></p>
-			</td>
-		</tr>
-<?php
-}
-add_action ( 'edit_category_form_fields', 'add_image_cat' );
 
-/**
- * Save previously selected custom category images
- */
-function save_image( $term_id ){
-    if ( isset( $_POST['wpmedium_category_image'] ) ) {
-        $category_images = get_option( 'wpmedium_category_images' );
-        $category_images[$term_id] =  $_POST['wpmedium_category_image'];
-        update_option( 'wpmedium_category_images', $category_images );
-    }
-}
-add_action ( 'edited_category', 'save_image' );
+
+
+
+
+
 
 /**
  * Add the theme's custom settings to <head>, overriding default stylesheets
@@ -365,12 +470,12 @@ function wpmedium_wp_head() {
     </style>
 <?php
     
-    if ( $options['general']['toggle_ajax'] == 1 ) {
+    /*if ( $options['general']['toggle_ajax'] == 1 ) {
         wp_register_script( 'wpmedium-ajax-browsing', get_template_directory_uri() . '/inc/js/wpmedium-ajax-browsing.js', array( 'jquery' ) );
         wp_register_script( 'history', get_template_directory_uri() . '/inc/js/jquery.history.js', array( 'jquery' ) );
         wp_enqueue_script( 'wpmedium-ajax-browsing' );
         wp_enqueue_script( 'history' );
-    }
+    }*/
 }
 add_action('wp_enqueue_scripts', 'wpmedium_wp_head');
 

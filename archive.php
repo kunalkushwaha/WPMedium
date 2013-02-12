@@ -4,16 +4,16 @@
  * @subpackage WPMedium
  * @since WPMedium 1.0
  */
-get_header(); ?>
+get_header(); $term = get_queried_object(); ?>
     
     <div id="archive" class="hfeed site">
 
       <header id="masthead" class="site-header" role="banner">
         <hgroup>
-          <div class="site-logo"><img class="site-avatar" src="<?php the_category_image(); ?>" alt="" /></div>
-          <h1 class="site-title"><?php single_cat_title( '' ); ?></h1>
-<?php if ( category_description() ) : ?>
-          <h2 class="site-description"><?php echo category_description(); ?></h2>
+          <div class="site-logo"><img class="site-avatar" src="<?php wpmedium_the_taxonomy_image(); ?>" alt="" /></div>
+          <h1 class="site-title"><?php single_term_title( '' ); ?></h1>
+<?php if ( term_description() ) : ?>
+          <h2 class="site-description"><?php echo term_description(); ?></h2>
 <?php endif; ?>
         </hgroup>
       </header><!-- #masthead -->
@@ -26,7 +26,7 @@ get_header(); ?>
             <ul class="archive-controls">
               <?php the_archive_controls(); ?>
             </ul>
-            <span class="archive-infos archive-post-count"><?php printf( _n( '%d Post', '%d Posts', get_category_count(), 'wpmedium' ), get_category_count() ); ?></span>
+            <span class="archive-infos archive-post-count"><?php printf( _n( '%d Post', '%d Posts', wpmedium_get_taxonomy_count($term->taxonomy), 'wpmedium' ), wpmedium_get_taxonomy_count($term->taxonomy) ); ?></span>
             <span class="archive-infos archive-post-backlink"><?php printf( __( 'Posted On %s %s', 'wpmedium' ), ''.home_url(), get_bloginfo( 'name' ) ); ?></span>
           </nav>
           
@@ -51,7 +51,7 @@ get_header(); ?>
               </div><!-- .entry-content -->
               
               <footer class="entry-meta">
-                <?php printf( '<span class="by-author">%s</span> %s <strong>%s</strong>', get_the_author(), __( 'In', 'wpmedium' ), wpmedium_get_the_category_list() ); ?><?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link"> | ', '</span>' ); ?>
+                <?php printf( '<span class="by-author">%s</span> %s <strong>%s</strong>', get_the_author(), __( 'In', 'wpmedium' ), wpmedium_get_the_taxonomy_list( $options['general']['default_taxonomy'] ) ); ?><?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link"> | ', '</span>' ); ?>
               </footer><!-- .entry-meta -->
             </article>
 <?php endwhile; ?>

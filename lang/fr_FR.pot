@@ -105,8 +105,8 @@ msgid "Oldest"
 msgstr "Anciens"
 
 #: functions.php:249
-msgid "Category Image"
-msgstr "Image d’aperçu de la catégorie"
+msgid "Taxonomy Image"
+msgstr "Image d’aperçu de la taxonomie"
 
 #: functions.php:260
 msgid "Upload Image"
@@ -117,8 +117,8 @@ msgid "Delete Image"
 msgstr "Supprimer l’image"
 
 #: functions.php:262
-msgid "Category Image Help"
-msgstr "L’image d’aperçu de la catégorie est une image affichée dans l’en-tête de la page de la catégorie, au-dessus du titre. Utilisez des images pour illustrer vos catégories ! Si vous ne choisissez par d’image personnalisée, la miniature du dernier article publié dans la catégorie sera utilisé. En cas de catégorie vide, le logo du site apparaîtra."
+msgid "Taxonomy Image Help"
+msgstr "L’image d’aperçu de la taxonomie est une image affichée dans l’en-tête des pages de vos mots-clefs, catégories et taxonomies personnalisées, au-dessus du titre. Utilisez des images pour illustrer vos taxonomies ! Si vous ne choisissez par d’image personnalisée, la miniature du dernier article publié dans la taxonomie sera utilisé. En cas de taxonomie vide, le logo du site apparaîtra."
 
 #: functions.php:379
 msgid "WPMedium Theme Options"
@@ -145,8 +145,8 @@ msgid "Post Tag"
 msgstr "Mot-clef"
 
 #: single.php:38
-msgid "This post has been tagged as"
-msgstr "Cet article a été taggué "
+msgid "This post also appears in"
+msgstr "Cet article apparaît également dans "
 
 #: single.php:55
 msgid "Published"
