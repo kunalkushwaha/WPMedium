@@ -580,6 +580,7 @@ a, a:hover {
 #page article {
     background: transparent;
     box-shadow: 0 0 0;
+    float: none;
     width: 640px;
 }
 

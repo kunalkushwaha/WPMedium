@@ -122,8 +122,8 @@ body {
 
 /* Page structure */
 .site {
+	height: 100%;
 	padding: 0;
-	background-color: #fff;
 }
 .site-content {
 	margin: 24px 0 0;
