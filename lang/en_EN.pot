@@ -136,9 +136,17 @@ msgstr "Delete the logo"
 msgid "Use As Logo"
 msgstr "Use as logo"
 
+#: functions.php:535
+msgid "Category"
+msgstr "Category"
+
+#: functions.php:536
+msgid "Post Tag"
+msgstr "Post Tag"
+
 #: single.php:38
 msgid "This post has been tagged as"
-msgstr "This post has been tagged as"
+msgstr "This post has been tagged as "
 
 #: single.php:55
 msgid "Published"
@@ -171,6 +179,14 @@ msgstr "Ajax browsing allow your visitors to access your website dynamically and
 #: theme-options.php:47
 msgid "Toggle Ajax Browsing"
 msgstr "Toggle Ajax browsing"
+
+#: theme-options.php:43
+msgid "Default Taxonomy"
+msgstr "Default Taxonomy"
+
+#: theme-options.php:46
+msgid "Default Taxonomy Help"
+msgstr "Default Taxonomy to be used to display your site’s posts: post tags or categories. Default value is category."
 
 #: theme-options.php:55
 msgid "Display Settings"

@@ -136,6 +136,14 @@ msgstr "Supprimer le logo"
 msgid "Use As Logo"
 msgstr "Utiliser commme logo"
 
+#: functions.php:535
+msgid "Category"
+msgstr "Catégorie"
+
+#: functions.php:536
+msgid "Post Tag"
+msgstr "Mot-clef"
+
 #: single.php:38
 msgid "This post has been tagged as"
 msgstr "Cet article a été taggué "
@@ -171,6 +179,14 @@ msgstr "La navigation Ajax permet à vos visiteur de naviguer sur votre site en 
 #: theme-options.php:47
 msgid "Toggle Ajax Browsing"
 msgstr "Activer la navigation Ajax"
+
+#: theme-options.php:43
+msgid "Default Taxonomy"
+msgstr "Taxonomy par défaut"
+
+#: theme-options.php:46
+msgid "Default Taxonomy Help"
+msgstr "La taxonomy à utiliser par défaut pour l’affichage des articles de votre site, mots-clefs ou catégorie. Par défaut, les catégories seront utilisées en priorité."
 
 #: theme-options.php:55
 msgid "Display Settings"
