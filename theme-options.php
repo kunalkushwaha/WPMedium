@@ -38,6 +38,16 @@ $wpmedium_options = array(
                         'value' => get_template_directory_uri().'/images/wp-badge.png',
                     ),
                 ),
+                array(
+                    '_id'         => 'default_taxonomy',
+                    '_title'      => __( 'Default Taxonomy', 'wpmedium' ),
+                    '_options'    => array(
+                        'id'    => 'default_taxonomy',
+                        'help'  => sprintf( __( 'Default Taxonomy Help', 'wpmedium' ) ),
+                        'label' => '',
+                        'value' => 'category',
+                    ),
+                ),
                 /*array(
                     '_id'         => 'toggle_ajax',
                     '_title'      => __( 'Ajax Browsing', 'wpmedium' ),

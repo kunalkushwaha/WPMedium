@@ -194,6 +194,27 @@ function the_social_links() {
     echo get_social_links();
 }
 
+
+/**
+ * Taxonomy images
+ */
+function get_the_taxonomy_image( $taxonomy_type = 'category' ) {
+    
+    $authorized_taxonomy = array( 'category',
+                                  'post_tag',
+    );
+    
+    if ( !in_array( $taxonomy_type, $authorized_taxonomy ) )
+        return false;
+    
+    if ( $taxonomy_type == 'category' )
+        get_the_category_image();
+    else if ( $taxonomy_type == 'category' )
+        get_the_post_tag_image();
+    else
+        return false;
+}
+
 /**
  * Return the custom category image
  * If no image is properly defined, fallback to the latest category's post
@@ -506,6 +527,16 @@ function wpmedium_options_callback( $section ) {
             $html .= '<input id="upload_logo_button" type="button" class="button-primary" value="'.__( 'Upload Logo', 'wpmedium' ).'" />';
             if ( '' != $options[$section['id']] )
                 $html .= '<input id="delete_logo_button" name="'.$wpmedium_options['options']['general_options']['page'].'[delete_logo]" type="submit" class="button-primary" value="'.__( 'Delete Logo', 'wpmedium' ).'" />';
+            echo $html;
+            break;
+        case 'default_taxonomy':
+            $options = get_option( $wpmedium_options['options']['general_options']['page'] );
+            $html  = '<select id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']">';
+            $html .= '<option value="category"'.selected( $options[$section['id']], 'category', false).'>'.__( 'Category', 'wpmedium' ).'</option>';
+            $html .= '<option value="post_tag"'.selected( $options[$section['id']], 'post_tag', false).'>'.__( 'Post Tag', 'wpmedium' ).'</option>';
+            $html .= '</select>';
+            $html .= '<label for="'.$section['id'].'"> '.$section['label'].'</label>';
+            if ( $section['help'] != '' ) $html .= '<span class="help">'.$section['help'].'</span>';
             echo $html;
             break;
         case 'general_settings_section':
