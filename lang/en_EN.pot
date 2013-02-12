@@ -145,8 +145,8 @@ msgid "Post Tag"
 msgstr "Post Tag"
 
 #: single.php:38
-msgid "This also appears in"
-msgstr "This also appears in "
+msgid "This post also appears in"
+msgstr "This post also appears in "
 
 #: single.php:55
 msgid "Published"
