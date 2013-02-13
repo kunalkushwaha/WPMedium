@@ -580,8 +580,28 @@ a, a:hover {
     color: #45568C !important;
 }
 
-.entry-comments {
+.entry-comment {
     margin-top: 50px;
+}
+
+.entry-comment .toggle-comments {
+    background: #ccc;
+    border-radius: 3px;
+    line-height: 28px;
+    opacity: 0.5;
+    padding: 10px;
+}
+
+.entry-comment .toggle-comments:hover {
+    opacity: 1.0;
+}
+
+#show_comments {
+    display: inline;
+}
+
+#hide_comments {
+    display: none;
 }
 
 #comments {
