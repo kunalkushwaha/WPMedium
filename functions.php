@@ -31,9 +31,6 @@ $wpmedium['general'] = get_option( 'wpmedium_theme_general_options' );
 $wpmedium['display'] = get_option( 'wpmedium_theme_display_options' );
 $wpmedium['social']  = get_option( 'wpmedium_theme_social_options'  );
 
-if ( !$wpmedium['general'] || !$wpmedium['display'] || !$wpmedium['social'] )
-    wpmedium_theme_initialize_options();
-
 // Available taxonomy to be used
 $authorized_taxonomy = array( 'category',
                               'post_tag',
