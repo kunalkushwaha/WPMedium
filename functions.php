@@ -23,10 +23,16 @@ if ( !isset( $content_width ) )
 
 require( 'inc/custom-header.php' );
 
-$options = array();
-$options['general'] = get_option( 'wpmedium_theme_general_options' );
-$options['display'] = get_option( 'wpmedium_theme_display_options' );
-$options['social']  = get_option( 'wpmedium_theme_social_options'  );
+// We need our default settings
+require_once( trailingslashit( get_template_directory() ). 'theme-options.php' );
+
+$wpmedium = array();
+$wpmedium['general'] = get_option( 'wpmedium_theme_general_options' );
+$wpmedium['display'] = get_option( 'wpmedium_theme_display_options' );
+$wpmedium['social']  = get_option( 'wpmedium_theme_social_options'  );
+
+if ( !$wpmedium['general'] || !$wpmedium['display'] || !$wpmedium['social'] )
+    wpmedium_theme_initialize_options();
 
 // Available taxonomy to be used
 $authorized_taxonomy = array( 'category',
@@ -42,35 +48,61 @@ $authorized_taxonomy = array( 'category',
 
 /**
  * Get shorter excerpt. Some times we just need less than 55 words
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $excerpt post default excerpt.
+ * @param int $length new maximum length.
+ * @return string New shorten excerpt.
  */
-function get_short_excerpt( $excerpt, $length = 15 ) {
+function wpmedium_get_short_excerpt( $excerpt, $length = 15 ) {
     return implode( ' ', array_slice( explode( ' ', strip_shortcodes( strip_tags( $excerpt ) ) ), 0, $length ) ).' [...]';
 }
 
 /**
  * Get longer excerpt. Some times we just need more than 55 words
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $excerpt post default excerpt.
+ * @param int $length new maximum length.
+ * @return string New longuer excerpt.
  */
-function get_long_excerpt( $excerpt, $length = 125 ) {
+function wpmedium_get_long_excerpt( $excerpt, $length = 125 ) {
     return implode( ' ', array_slice( explode( ' ', strip_shortcodes( strip_tags( $excerpt ) ) ), 0, $length ) ).' [...]';
 }
 
 /**
  * Display shorter excerpt.
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $excerpt post default excerpt.
+ * @param int $length new maximum length.
  */
-function the_short_excerpt( $excerpt, $length = 15 ) {
-    echo get_short_excerpt( $excerpt, $length );
+function wpmedium_the_short_excerpt( $excerpt, $length = 15 ) {
+    echo wpmedium_get_short_excerpt( $excerpt, $length );
 }
 
 /**
  * Display longer excerpt.
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $excerpt post default excerpt.
+ * @param int $length new maximum length.
  */
-function the_long_excerpt( $excerpt, $length = 125 ) {
-    echo get_long_excerpt( $excerpt, $length );
+function wpmedium_the_long_excerpt( $excerpt, $length = 125 ) {
+    echo wpmedium_get_long_excerpt( $excerpt, $length );
 }
 
 /**
  * Return the header image path. If no header image is defined,
  * use the default one.
+ * 
+ * @since WPMedium 1.0
+ *
+ * @return string Header image URL.
  */
 function wpmedium_get_header_image() {
     $header_image = get_header_image();
@@ -82,11 +114,38 @@ function wpmedium_get_header_image() {
 
 /**
  * Display header image path
+ * 
+ * @since WPMedium 1.0
  */
 function wpmedium_the_header_image() {
     echo wpmedium_get_header_image();
 }
 
+/**
+ * Hexadecimal to RGB color conversion
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $color HTML color code.
+ * @return array Submitted color decimal values.
+ */
+function hex2rgb( $color ) {
+    if ( $color[0] == '#' )
+        $color = substr( $color, 1 );
+    
+    if ( strlen( $color ) == 6 )
+        list( $r, $g, $b ) = array( $color[0].$color[1], $color[2].$color[3], $color[4].$color[5] );
+    elseif ( strlen( $color ) == 3 )
+        list( $r, $g, $b ) = array( $color[0].$color[0], $color[1].$color[1], $color[2].$color[2] );
+    else
+        return false;
+    
+    $r = hexdec( $r );
+    $g = hexdec( $g );
+    $b = hexdec( $b );
+    
+    return array( 'red' => $r, 'green' => $g, 'blue' => $b );
+}
 
 /**
  *********************************
@@ -96,6 +155,10 @@ function wpmedium_the_header_image() {
 
 /**
  * Returns the post's thumbnail if available, default image else
+ * 
+ * @since WPMedium 1.0
+ * 
+ * @return string Post's thumbnail HTML code.
  */
 function wpmedium_get_post_thumbnail() {
     global $post;
@@ -110,6 +173,8 @@ function wpmedium_get_post_thumbnail() {
 
 /**
  * Display thumbnail support
+ * 
+ * @since WPMedium 1.0
  */
 function wpmedium_the_post_thumbnail() {
     echo wpmedium_get_post_thumbnail();
@@ -117,6 +182,11 @@ function wpmedium_the_post_thumbnail() {
 
 /**
  * If available, returns the post thumbnail's description
+ * if no description is found, return empty
+ * 
+ * @since WPMedium 1.0
+ *
+ * @return string Post's thumbnail credit
  */
 function wpmedium_post_thumbnail_credit() {
     global $post;
@@ -132,6 +202,8 @@ function wpmedium_post_thumbnail_credit() {
 
 /**
  * Display post thumbnail's description
+ * 
+ * @since WPMedium 1.0
  */
 function wpmedium_the_post_thumbnail_credit() {
     echo wpmedium_post_thumbnail_credit();
@@ -144,7 +216,11 @@ function wpmedium_the_post_thumbnail_credit() {
  */
 
 /**
- * Get the taxonomy count
+ * Get the taxonomy's number of posts
+ * 
+ * @since WPMedium 1.0
+ *
+ * @return string Taxonomy count.
  */
 function wpmedium_get_taxonomy_count() {
     global $authorized_taxonomy, $term;
@@ -159,6 +235,12 @@ function wpmedium_get_taxonomy_count() {
 
 /**
  * Get the taxonomy list
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $taxonomy_type what taxonomy we're handling
+ * @param int $limit returned list's max number of elements to be displayed
+ * @return string the taxonomy list, commat separated
  */
 function wpmedium_get_the_taxonomy_list( $taxonomy_type = 'category', $limit = 3 ) {
     global $authorized_taxonomy, $post;
@@ -176,13 +258,24 @@ function wpmedium_get_the_taxonomy_list( $taxonomy_type = 'category', $limit = 3
     return $taxonomy;
 }
 
+/**
+ * Get the post's taxonomy.
+ * General alternative to the_tags() and the_category() methods.
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $before taxonomy prefix.
+ * @param string $sep Optional separator.
+ * @param string $after taxonomy suffix.
+ * @return Taxonomy string
+ */
 function wpmedium_get_the_taxonomy( $before = '', $sep = ', ', $after = '' ) {
-    global $authorized_taxonomy, $options, $post;
+    global $authorized_taxonomy, $wpmedium, $post;
     $r = array();
     
-    if ( $options['general']['default_taxonomy'] == 'category' )
+    if ( $wpmedium['general']['default_taxonomy'] == 'category' )
         $taxonomy_type = 'post_tag';
-    else if ( $options['general']['default_taxonomy'] == 'post_tag' )
+    else if ( $wpmedium['general']['default_taxonomy'] == 'post_tag' )
         $taxonomy_type = 'category';
     
     $terms = get_the_terms( $post->ID, $taxonomy_type );
@@ -195,13 +288,27 @@ function wpmedium_get_the_taxonomy( $before = '', $sep = ', ', $after = '' ) {
     return $before.$terms.$after;
 }
 
+/**
+ * Display the post's taxonomy.
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $before taxonomy prefix.
+ * @param string $sep Optional separator.
+ * @param string $after taxonomy suffix.
+ */
 function wpmedium_the_taxonomy( $before = '', $sep = ', ', $after = '' ) {
     echo wpmedium_get_the_taxonomy( $before, $sep, $after );
 }
 
-
-
-function get_archive_controls() {
+/**
+ * Get the archive control menu links.
+ * 
+ * @since WPMedium 1.0
+ *
+ * @return string The archive menu.
+ */
+function wpmedium_get_archive_controls() {
     
     $recommended = '';
     $recent      = '';
@@ -218,11 +325,23 @@ function get_archive_controls() {
     return $recommended."\n".$recent;
 }
 
-function the_archive_controls() {
-    echo get_archive_controls();
+/**
+ * Get the index control menu links.
+ * 
+ * @since WPMedium 1.0
+ */
+function wpmedium_the_archive_controls() {
+    echo wpmedium_get_archive_controls();
 }
 
-function get_index_controls() {
+/**
+ * Display the archive control menu links.
+ * 
+ * @since WPMedium 1.0
+ *
+ * @return string The index menu.
+ */
+function wpmedium_get_index_controls() {
     
     $newest = '';
     $oldest = '';
@@ -239,29 +358,53 @@ function get_index_controls() {
     return $newest."\n".$oldest;
 }
 
-function the_index_controls() {
-    echo get_index_controls();
+/**
+ * Display the index control menu links.
+ * 
+ * @since WPMedium 1.0
+ */
+function wpmedium_the_index_controls() {
+    echo wpmedium_get_index_controls();
 }
 
-function get_site_logo() {
-    $options = get_option( 'wpmedium_theme_general_options' );
-    if ( $options['site_logo'] != '' )
-        return '<img class="site-avatar" src="'.esc_url( $options['site_logo'] ).'" alt="" />';
+/**
+ * Get the site logo
+ * If no logo is set in the theme's options, use default WP-Badge as logo 
+ * 
+ * @since WPMedium 1.0
+ *
+ * @return string The site logo URL.
+ */
+function wpmedium_get_site_logo() {
+    global $wpmedium;
+    if ( $wpmedium['general']['site_logo'] != '' )
+        return '<img class="site-avatar" src="'.esc_url( $wpmedium['general']['site_logo'] ).'" alt="" />';
     else
         return '<img class="site-avatar" src="'.get_template_directory_uri().'/images/wp-badge.png" alt="" style="height:auto;margin:-22px 0 0 -42px;" />';
 }
 
-function the_site_logo() {
-    echo get_site_logo();
+/**
+ * Display the site logo
+ * 
+ * @since WPMedium 1.0
+ */
+function wpmedium_the_site_logo() {
+    echo wpmedium_get_site_logo();
 }
 
-function get_social_links() {
-    global $options;
+/**
+ * 
+ * @since WPMedium 1.0
+ *
+ * @return string .
+ */
+function wpmedium_get_social_links() {
+    global $wpmedium;
     
     $ret = '';
     
-    if ( count( $options['social'] ) > 0 ) {
-        foreach ( $options['social'] as $network => $url ) {
+    if ( count( $wpmedium['social'] ) > 0 ) {
+        foreach ( $wpmedium['social'] as $network => $url ) {
             if ( $url != '' )
                 $ret .= '<a href="'.esc_url( $url ).'"><i class="'.str_replace( '_profile', '', $network ).'" style="background-image:url('.get_template_directory_uri().'/images/icons/picon_social/'.str_replace( '_profile', '', $network ).'.png)"></i></a> ';
         }
@@ -270,8 +413,13 @@ function get_social_links() {
     return $ret;
 }
 
-function the_social_links() {
-    echo get_social_links();
+/**
+ * 
+ * 
+ * @since WPMedium 1.0
+ */
+function wpmedium_the_social_links() {
+    echo wpmedium_get_social_links();
 }
 
 
@@ -279,9 +427,13 @@ function the_social_links() {
  * Return the custom taxonomy image
  * If no image is properly defined, fallback to the latest taxonomy's post
  * thumbnail. If the taxonomy is empty, use the theme's logo
+ * 
+ * @since WPMedium 1.0
+ *
+ * @return string The taxonomy image.
  */
 function wpmedium_get_the_taxonomy_image() {
-    global $authorized_taxonomy, $options, $term;
+    global $authorized_taxonomy, $wpmedium, $term;
     
     $ret = '';
     
@@ -316,31 +468,27 @@ function wpmedium_get_the_taxonomy_image() {
         }
     }
     else {
-        $ret = $options['general']['site_logo'];
+        $ret = $wpmedium['general']['site_logo'];
     }
     return $ret;
 }
 
 /**
  * Display the custom taxonomy image
+ * 
+ * @since WPMedium 1.0
  */
 function wpmedium_the_taxonomy_image() {
     echo wpmedium_get_the_taxonomy_image();
 }
 
-
-
-
-
-
-
-
-
-
-
 /**
  * Add custom images to display along with category description and title
  * selection/upload using WP media-upload
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $taxonomy 
  */
 function wpmedium_add_taxonomy_image( $taxonomy ) {
     
@@ -381,6 +529,10 @@ add_action ( 'edit_tag_form_fields', 'wpmedium_add_taxonomy_image' );
 
 /**
  * Save previously selected custom category images
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param int $term_id taxonomy ID.
  */
 function save_image( $term_id ){
     if ( isset( $_POST['wpmedium_taxonomy_image'] ) ) {
@@ -391,87 +543,45 @@ function save_image( $term_id ){
 }
 add_action ( 'edited_term', 'save_image' );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * Hexadecimal to RGB color conversion
- */
-function hex2rgb( $colour ) {
-    if ( $colour[0] == '#' )
-        $colour = substr( $colour, 1 );
-    
-    if ( strlen( $colour ) == 6 )
-        list( $r, $g, $b ) = array( $colour[0].$colour[1], $colour[2].$colour[3], $colour[4].$colour[5] );
-    elseif ( strlen( $colour ) == 3 )
-        list( $r, $g, $b ) = array( $colour[0].$colour[0], $colour[1].$colour[1], $colour[2].$colour[2] );
-    else
-        return false;
-    
-    $r = hexdec( $r );
-    $g = hexdec( $g );
-    $b = hexdec( $b );
-    
-    return array( 'red' => $r, 'green' => $g, 'blue' => $b );
-}
-
-
-
-
-
-
-
-
 /**
  * Add the theme's custom settings to <head>, overriding default stylesheets
+ * 
+ * @since WPMedium 1.0
  */
 function wpmedium_wp_head() {
-    global $options;
+    global $wpmedium;
 ?>
     <style type="text/css">
 <?php
     // background_color
-    if ( $options['display']['background_color'] != '' )
-        echo '    body, .site {background: '.$options['display']['background_color'].' !important;}'."\n";
+    if ( $wpmedium['display']['background_color'] != '' )
+        echo '    body, .site {background: '.$wpmedium['display']['background_color'].' !important;}'."\n";
     // text_color
-    if ( $options['display']['text_color'] != '' )
-        echo '    body, .site {color: '.$options['display']['text_color'].' !important;}'."\n";
+    if ( $wpmedium['display']['text_color'] != '' )
+        echo '    body, .site {color: '.$wpmedium['display']['text_color'].' !important;}'."\n";
     // header_overlay_color
-    if ( $options['display']['header_overlay_color'] != '' )
-        echo '    .site-header-overlay {background-color: '.$options['display']['header_overlay_color'].' !important;}'."\n";
+    if ( $wpmedium['display']['header_overlay_color'] != '' )
+        echo '    .site-header-overlay {background-color: '.$wpmedium['display']['header_overlay_color'].' !important;}'."\n";
     // header_overlay_opacity
-    if ( $options['display']['header_overlay_opacity'] != '' )
-        echo '    .site-header-overlay {opacity: '.($options['display']['header_overlay_opacity'] / 100).' !important;}'."\n";
+    if ( $wpmedium['display']['header_overlay_opacity'] != '' )
+        echo '    .site-header-overlay {opacity: '.($wpmedium['display']['header_overlay_opacity'] / 100).' !important;}'."\n";
     // link_color
-    if ( $options['display']['link_color'] != '' )
-        echo '    a {color: '.$options['display']['link_color'].' !important;}'."\n";
+    if ( $wpmedium['display']['link_color'] != '' )
+        echo '    a {color: '.$wpmedium['display']['link_color'].' !important;}'."\n";
     // link_hover_color
-    if ( $options['display']['link_hover_color'] != '' )
-        echo '    a:hover {color: '.$options['display']['link_hover_color'].' !important;}'."\n";
+    if ( $wpmedium['display']['link_hover_color'] != '' )
+        echo '    a:hover {color: '.$wpmedium['display']['link_hover_color'].' !important;}'."\n";
     // header_title_color
-    if ( $options['display']['header_title_color'] != '' )
-        echo '    .entry-header .entry-title a {color: '.$options['display']['header_title_color'].' !important;}'."\n";
+    if ( $wpmedium['display']['header_title_color'] != '' )
+        echo '    .entry-header .entry-title a {color: '.$wpmedium['display']['header_title_color'].' !important;}'."\n";
     // header_title_hover_color
-    if ( $options['display']['header_title_hover_color'] != '' )
-        echo '    .entry-header .entry-title a:hover {color: '.$options['display']['header_title_hover_color'].' !important;}'."\n";
+    if ( $wpmedium['display']['header_title_hover_color'] != '' )
+        echo '    .entry-header .entry-title a:hover {color: '.$wpmedium['display']['header_title_hover_color'].' !important;}'."\n";
 ?>
     </style>
 <?php
     
-    /*if ( $options['general']['toggle_ajax'] == 1 ) {
+    /*if ( $wpmedium['general']['toggle_ajax'] == 1 ) {
         wp_register_script( 'wpmedium-ajax-browsing', get_template_directory_uri() . '/inc/js/wpmedium-ajax-browsing.js', array( 'jquery' ) );
         wp_register_script( 'history', get_template_directory_uri() . '/inc/js/jquery.history.js', array( 'jquery' ) );
         wp_enqueue_script( 'wpmedium-ajax-browsing' );
@@ -482,6 +592,8 @@ add_action('wp_enqueue_scripts', 'wpmedium_wp_head');
 
 /**
  * Add custom style to the theme options page
+ * 
+ * @since WPMedium 1.0
  */
 function wpmedium_admin_scripts() {
     
@@ -506,11 +618,10 @@ function wpmedium_admin_scripts() {
 }
 add_action('admin_enqueue_scripts', 'wpmedium_admin_scripts');
 
-// We need our default settings
-require_once( trailingslashit( get_template_directory() ). 'theme-options.php' );
-
 /**
  * Theme options page
+ * 
+ * @since WPMedium 1.0
  */
 function wpmedium_theme_menu() {
     global $wpmedium_options;
@@ -532,6 +643,8 @@ add_action('admin_menu', 'wpmedium_theme_menu');
 
 /**
  * Display theme options page
+ * 
+ * @since WPMedium 1.0
  */
 function wpmedium_theme_display() {
     global $wpmedium_options;
@@ -573,6 +686,8 @@ function wpmedium_theme_display() {
 
 /**
  * Settings Registration
+ * 
+ * @since WPMedium 1.0
  */
 function wpmedium_theme_initialize_options() {
     global $wpmedium_options;
@@ -610,6 +725,10 @@ add_action( 'admin_init', 'wpmedium_theme_initialize_options' );
 
 /**
  * Section Callback
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $section Option section to handle
  */
 function wpmedium_options_callback( $section ) {
     global $wpmedium_options;
@@ -723,13 +842,29 @@ jQuery(document).ready(function($) {
     }
 } // end wpmedium_theme_social_options
 
+/**
+ * Setup WP Media Upload tool
+ * 
+ * @since WPMedium 1.0
+ */
 function wpmedium_media_upload_setup() {
     global $pagenow;
     if ( 'media-upload.php' == $pagenow || 'async-upload.php' == $pagenow )
-        add_filter( 'gettext', 'replace_thickbox_text'  , 1, 3 );
+        add_filter( 'gettext', 'replace_thickbox_text', 1, 3 );
 }
 add_action( 'admin_init', 'wpmedium_media_upload_setup' ); 
 
+/**
+ * Customize WP Media upload text
+ * Not really sure I correctly understand this one's params,
+ * but still, it works…
+ * 
+ * @since WPMedium 1.0
+ *
+ * @param string $translated_text modified text?
+ * @param string $text current media tool text?
+ * @param string $domain domain?
+ */
 function replace_thickbox_text( $translated_text, $text, $domain ) { 
     if ( 'Insert into Post' == $text ) { 
         $referer = strpos( wp_get_referer(), 'wpmedium_theme_options' ); 

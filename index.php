@@ -13,10 +13,10 @@ get_header(); ?>
         <div class="site-header-overlay"></div>
         
         <hgroup>
-          <div class="site-logo"><?php the_site_logo(); ?></div>
+          <div class="site-logo"><?php wpmedium_the_site_logo(); ?></div>
           <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
           <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-          <p><?php the_social_links(); ?></p>
+          <p><?php wpmedium_the_social_links(); ?></p>
         </hgroup>
       </header><!-- #masthead -->
       
@@ -36,7 +36,7 @@ get_header(); ?>
           
           <nav class="site-categories">
             <ul class="site-categories-order">
-              <?php the_index_controls(); ?>
+              <?php wpmedium_the_index_controls(); ?>
               <li class="site-categories-count"><a><?php printf( _n( '%d Post', '%d Posts', $wp_query->found_posts, 'wpmedium' ), $wp_query->found_posts ); ?></a></li>
             </ul>
           </nav>
@@ -58,7 +58,7 @@ get_header(); ?>
               </div><!-- .entry-content -->
               
               <footer class="entry-meta">
-                <?php printf( '<span class="by-author">%s</span> %s %s', get_the_author(), __( 'In', 'wpmedium' ), wpmedium_get_the_taxonomy_list( $options['general']['default_taxonomy'] ) ); ?><?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link"> | ', '</span>' ); ?>
+                <?php printf( '<span class="by-author">%s</span> %s %s', get_the_author(), __( 'In', 'wpmedium' ), wpmedium_get_the_taxonomy_list( $wpmedium_options['general']['default_taxonomy'] ) ); ?><?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link"> | ', '</span>' ); ?>
               </footer><!-- .entry-meta -->
             </article>
 <?php endwhile; ?>

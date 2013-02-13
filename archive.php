@@ -24,7 +24,7 @@ get_header(); $term = get_queried_object(); ?>
           
           <nav class="archive-menu">
             <ul class="archive-controls">
-              <?php the_archive_controls(); ?>
+              <?php wpmedium_the_archive_controls(); ?>
             </ul>
             <span class="archive-infos archive-post-count"><?php printf( _n( '%d Post', '%d Posts', wpmedium_get_taxonomy_count($term->taxonomy), 'wpmedium' ), wpmedium_get_taxonomy_count($term->taxonomy) ); ?></span>
             <span class="archive-infos archive-post-backlink"><?php printf( __( 'Posted On %s %s', 'wpmedium' ), ''.home_url(), get_bloginfo( 'name' ) ); ?></span>
@@ -51,7 +51,7 @@ get_header(); $term = get_queried_object(); ?>
               </div><!-- .entry-content -->
               
               <footer class="entry-meta">
-                <?php printf( '<span class="by-author">%s</span> %s <strong>%s</strong>', get_the_author(), __( 'In', 'wpmedium' ), wpmedium_get_the_taxonomy_list( $options['general']['default_taxonomy'] ) ); ?><?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link"> | ', '</span>' ); ?>
+                <?php printf( '<span class="by-author">%s</span> %s <strong>%s</strong>', get_the_author(), __( 'In', 'wpmedium' ), wpmedium_get_the_taxonomy_list( $wpmedium_options['general']['default_taxonomy'] ) ); ?><?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link"> | ', '</span>' ); ?>
               </footer><!-- .entry-meta -->
             </article>
 <?php endwhile; ?>
