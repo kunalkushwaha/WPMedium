@@ -67,7 +67,9 @@ get_header(); ?>
               </div><!-- .entry-content -->
               
               <footer class="entry-meta">
-                <?php printf( '<span class="by-author">%s</span> %s %s', get_the_author(), __( 'In', 'wpmedium' ), wpmedium_get_the_taxonomy_list( $wpmedium['general']['default_taxonomy'] ) ); ?><?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link"> | ', '</span>' ); ?>
+                <div class="wrap">
+                  <?php printf( '<span class="by-author">%s</span> %s %s', get_the_author(), __( 'In', 'wpmedium' ), wpmedium_get_the_taxonomy_list( $wpmedium['general']['default_taxonomy'] ) ); ?><?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link"> | ', '</span>' ); ?>
+                </div>
               </footer><!-- .entry-meta -->
             </article>
 <?php endwhile; ?>
