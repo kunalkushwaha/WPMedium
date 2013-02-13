@@ -354,6 +354,7 @@ img.aligncenter {
 	margin-top: 0.857142857rem;
 	margin-bottom: 12px;
 	margin-bottom: 0.857142857rem;
+	display: block;
 }
 .entry-content embed,
 .entry-content iframe,
