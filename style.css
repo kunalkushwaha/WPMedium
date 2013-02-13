@@ -966,7 +966,7 @@ a, a:hover {
 
 /** Media relative **/
 
-@media all and (min-width: 78em) {
+@media screen and (min-width: 78em) {
     #main {
         width: 1155px;
     }
@@ -977,7 +977,7 @@ a, a:hover {
     }
 }
 
-@media all and (min-width: 53em) and (max-width: 78em) {
+@media screen and (min-width: 53em) and (max-width: 78em) {
     #main {
         width: 770px;
     }
@@ -1008,7 +1008,7 @@ a, a:hover {
     }
 }
 
-@media all and (min-width: 24em) and (max-width: 53em) {
+@media screen and (min-width: 24em) and (max-width: 53em) {
     .site-header {
         background-size: auto 100%;
     }
@@ -1088,7 +1088,7 @@ a, a:hover {
     }
 }
 
-@media all and (max-width: 24em) and (min-width: 20em) {
+@media screen and (max-width: 24em) and (min-width: 20em) {
     .site-header {
         background-size: auto 100%;
     }
