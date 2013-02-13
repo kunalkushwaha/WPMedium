@@ -321,6 +321,7 @@ a, a:hover {
 }
 
 .site-menu li.menu-item-search {
+    float: right;
 }
 
 .site-menu li.menu-item-search input#s {
@@ -338,6 +339,19 @@ a, a:hover {
     position: absolute;
     right: 0;
     width: 20px;
+}
+
+.site-menu li.menu-item-search input#s:focus {
+    width: 250px;
+}
+
+.site-menu li.menu-item-search input#s,
+.site-menu li.menu-item-search input#s:focus {
+    transition: width 0.5s ease;
+    -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+    -ms-transition: width 0.5s ease;
+    -o-transition: width 0.5s ease;
 }
 
 .site-menu li.menu-item-search input#searchsubmit {
@@ -431,6 +445,7 @@ a, a:hover {
 }
 
 #content {
+    margin: 0 auto;
     padding: 15px 0;
 }
 
@@ -543,7 +558,7 @@ a, a:hover {
 }
 
 .entry-header img.default {
-    height: 100%;
+    height: auto;
     overflow: hidden;
     width: 100%;
 }
@@ -649,7 +664,7 @@ a, a:hover {
 #page .entry-thumb {
     margin: 0 0 15px 0;
     position: relative;
-    width: 640px;
+    width: 100%;
 }
 
 #single .entry-thumb img,
@@ -657,7 +672,7 @@ a, a:hover {
     border-radius: 4px;
     height: auto;
     margin: 0;
-    width: 640px;
+    width: 100%;
 }
 
 #single .entry-thumb .entry-thumb-credit,
@@ -979,10 +994,11 @@ a, a:hover {
     }
     
     #main, 
+    #content, 
     .site-menu,
     .site-categories,
     .archive-menu {
-        width: 370px !important;
+        width: 96% !important;
     }
     
     .site-menu, .archive-menu {
@@ -1008,25 +1024,26 @@ a, a:hover {
     }
     
     .site-header h1, .site-header h2 {
-        width: 370px !important;
+        width: 100% !important;
     }
     
     .site-content article {
         margin: 15px 0 !important;
-        width: 370px !important;
+        min-height: auto;
+        width: 100% !important;
     }
     
     #single article {
-        width: 370px !important;
+        width: 100% !important;
     }
     
     #single .entry-thumb img {
-        width: 370px !important;
+        width: 100% !important;
     }
     
     #single .entry-author {
         padding: 15px 10px;
-        width: 370px !important;
+        width: 100% !important;
     }
     
     #single .entry-date {
@@ -1092,6 +1109,15 @@ a, a:hover {
     .site-content article {
         margin: 15px 0 !important;
         width: 300px !important;
+    }
+    
+    .site-menu li.menu-item-search {
+        float: none;
+    }
+    
+    .site-menu li.menu-item-search input#s {
+        position: relative;
+        width: 195%;
     }
     
     .entry-meta {
