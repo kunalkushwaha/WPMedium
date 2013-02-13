@@ -38,7 +38,9 @@ get_header(); ?>
 <?php else : ?>
               <?php wp_list_categories( array( 'title_li' => '', 'hierarchical' => 0 ) ); ?>
 <?php endif; ?>
+              <li id="menu-item-search" class="menu-item menu-item-search"><?php get_search_form(); ?></li>
             </ul>
+
           </nav>
           
           <nav class="site-categories">

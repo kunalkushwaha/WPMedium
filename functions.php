@@ -613,6 +613,9 @@ function wpmedium_wp_head() {
         wp_enqueue_script( 'wpmedium-ajax-browsing' );
         wp_enqueue_script( 'history' );
     }*/
+    
+    wp_register_script( 'wpmedium', get_template_directory_uri() . '/inc/js/jquery.wpmedium.js', array( 'jquery' ) );
+    wp_enqueue_script( 'wpmedium' );
     wp_enqueue_script( 'jquery' );
 }
 add_action('wp_enqueue_scripts', 'wpmedium_wp_head');

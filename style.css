@@ -303,6 +303,7 @@ a, a:hover {
 
 .site-menu ul {
     height: 45px;
+    position: relative;
 }
 
 .site-menu li  {
@@ -317,6 +318,30 @@ a, a:hover {
 
 .site-menu li:last-child a {
     border-right: 0;
+}
+
+.site-menu li.menu-item-search {
+}
+
+.site-menu li.menu-item-search input#s {
+    background-color: #666;
+    background-image: url(images/search.png);
+    background-position: right 6px;
+    background-repeat: no-repeat;
+    border: 0;
+    border-radius: 20px;
+    color: #ccc;
+    height: 18px;
+    margin: 6px 8px;
+    outline: 0;
+    padding-left: 8px;
+    position: absolute;
+    right: 0;
+    width: 20px;
+}
+
+.site-menu li.menu-item-search input#searchsubmit {
+    display: none;
 }
 
 .site-menu a {
