@@ -264,6 +264,12 @@ a, a:hover {
     width: 24px;
 }
 
+.site-header .header-sidebar {
+    color: #fff;
+    z-index: 10;
+    position: relative;
+}
+
 .site-menu {
     font-family: "PT Sans Narrow", sans-serif;
     font-weight: 400;
@@ -881,14 +887,14 @@ a, a:hover {
 
 #archive .entry-header-image,
 #home .entry-header-image {
-	position: relative;
+	/*position: relative;*/
 }
 
 #archive .entry-header img.wp-post-image,
 #home .entry-header img.wp-post-image {
-	bottom: 0;
+	/*bottom: 0;
 	margin-bottom: 0;
-	position: absolute;
+	position: absolute;*/
 }
 
 #archive .entry-meta,
@@ -922,7 +928,8 @@ a, a:hover {
         width: 750px !important;
     }
     
-    .site-content article.sticky {
+    .site-content article.sticky,
+    .site-content article.sticky .entry-meta {
         width: 750px !important;
     }
     
@@ -942,6 +949,10 @@ a, a:hover {
 }
 
 @media all and (min-width: 384px) and (max-width: 854px) {
+    .site-header {
+        background-size: auto 100%;
+    }
+    
     #main, 
     .site-menu,
     .site-categories,
@@ -1016,6 +1027,10 @@ a, a:hover {
 }
 
 @media all and (max-width: 384px) and (min-width: 320px) {
+    .site-header {
+        background-size: auto 100%;
+    }
+    
     #main, 
     .site-menu,
     .site-categories,
@@ -1052,6 +1067,10 @@ a, a:hover {
     .site-content article {
         margin: 15px 0 !important;
         width: 300px !important;
+    }
+    
+    .entry-meta {
+        width: 250px;
     }
     
     .entry-header-image, .entry-header img {

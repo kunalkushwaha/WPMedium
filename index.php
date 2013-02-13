@@ -18,6 +18,13 @@ get_header(); ?>
           <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
           <p><?php wpmedium_the_social_links(); ?></p>
         </hgroup>
+        
+<?php if ( is_active_sidebar( 'header-sidebar' ) ) : ?>
+        <div id="header-sidebar" class="widget-area header-sidebar" role="complementary">
+          <?php dynamic_sidebar( 'header-sidebar' ); ?>
+        </div><!-- #secondary -->
+<?php endif; ?>
+        
       </header><!-- #masthead -->
       
       <div id="main" class="wrapper">

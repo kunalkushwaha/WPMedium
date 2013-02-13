@@ -36,6 +36,18 @@ $authorized_taxonomy = array( 'category',
                               'post_tag',
 );
 
+// Add a sidebar to the header
+register_sidebar( array(
+    'name'          => __( 'Header Sidebar', 'wpmedium' ),
+    'id'            => 'header-sidebar',
+    'description'   => __( 'Header Sidebar help', 'wpmedium' ),
+    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+    'after_widget'  => '</aside>',
+    'before_title'  => '',
+    'after_title'   => '',
+) );
+
+
 /**
  *********************************
  *         Custom methods
@@ -576,6 +588,9 @@ function wpmedium_wp_head() {
     // header_overlay_opacity
     if ( $wpmedium['display']['header_overlay_opacity'] != '' )
         echo '    .site-header-overlay {opacity: '.($wpmedium['display']['header_overlay_opacity'] / 100).' !important;}'."\n";
+    // header_sidebar_color
+    if ( $wpmedium['display']['header_sidebar_color'] != '' )
+        echo '    .header-sidebar {color: '.$wpmedium['display']['header_sidebar_color'].' !important;}'."\n";
     // link_color
     if ( $wpmedium['display']['link_color'] != '' )
         echo '    a {color: '.$wpmedium['display']['link_color'].' !important;}'."\n";
@@ -784,6 +799,7 @@ function wpmedium_options_callback( $section ) {
         case 'background_color':
         case 'text_color':
         case 'header_overlay_color':
+        case 'header_sidebar_color':
         case 'link_color':
         case 'link_hover_color':
         case 'header_title_color':

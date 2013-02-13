@@ -111,6 +111,17 @@ $wpmedium_options = array(
                         'value' => '50',
                     ),
                 ),
+                // .header-sidebar color
+                array(
+                    '_id'         => 'header_sidebar_color',
+                    '_title'      => __( 'Header Sidebar Color', 'wpmedium' ),
+                    '_options'    => array(
+                        'id'    => 'header_sidebar_color',
+                        'help'  => sprintf( __( 'Header Sidebar Color Help %s', 'wpmedium' ), '#ffffff' ),
+                        'label' => '',
+                        'value' => '#ffffff',
+                    ),
+                ),
                 // Link color
                 array(
                     '_id'         => 'link_color',
