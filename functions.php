@@ -36,7 +36,6 @@ $authorized_taxonomy = array( 'category',
                               'post_tag',
 );
 
-
 /**
  *********************************
  *         Custom methods
@@ -599,6 +598,7 @@ function wpmedium_wp_head() {
         wp_enqueue_script( 'wpmedium-ajax-browsing' );
         wp_enqueue_script( 'history' );
     }*/
+    wp_enqueue_script( 'jquery' );
 }
 add_action('wp_enqueue_scripts', 'wpmedium_wp_head');
 
