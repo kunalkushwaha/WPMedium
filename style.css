@@ -430,7 +430,6 @@ a, a:hover {
 .site-content article {
     background: #fff;
     border: 0;
-    border-radius: 4px 4px 0 0;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     float: left;
     margin: 10px;
@@ -495,9 +494,27 @@ a, a:hover {
 }
 
 .entry-header-image, .entry-header img {
-    border-radius: 4px;
     height: 245px;
     overflow: hidden;
+}
+
+.entry-header img.landscape {
+    height: 100%;
+    overflow: hidden;
+    width: auto;
+}
+
+.entry-header img.landscape-fit,
+.entry-header img.portrait {
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+.entry-header img.default {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
 }
 
 .entry-content {
@@ -871,10 +888,7 @@ a, a:hover {
 #home .entry-header img.wp-post-image {
 	bottom: 0;
 	margin-bottom: 0;
-	min-height: auto;
-	height: auto;
 	position: absolute;
-	width: 100%;
 }
 
 #archive .entry-meta,

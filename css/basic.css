@@ -101,8 +101,7 @@ img[class*="attachment-"] {
 }
 img.size-full,
 img.size-large,
-img.header-image,
-img.wp-post-image {
+img.header-image {
 	max-width: 100%;
 	height: auto; /* Make sure images with WordPress-added height and width attributes are scaled correctly */
 }

@@ -160,10 +160,25 @@ function hex2rgb( $color ) {
 function wpmedium_get_post_thumbnail() {
     global $post;
     
-    if ( has_post_thumbnail( $post->ID ) )
-        $ret = get_the_post_thumbnail( $post->ID );
-    else
-        $ret = '<img src="'.get_template_directory_uri().'/images/wpmedium-post-thumbnail.jpg" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image" />';
+    if ( has_post_thumbnail( $post->ID ) ) {
+        $attachment =  wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+        
+        if ( $attachment[1] > $attachment[2] ) {
+            if ( $attachment[1] / ( $attachment[2] / 245 ) < 370 )
+                $class = "landscape-fit";
+            else
+                $class = "landscape";
+        }
+        else if ( $attachment[1] < $attachment[2] )
+            $class = "portrait";
+        else
+            $class = "default";
+        
+        $ret = '<img src="'.$attachment[0].'" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image '.$class.'" />';
+    }
+    else {
+        $ret = '<img src="'.get_template_directory_uri().'/images/wpmedium-post-thumbnail.jpg" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image default" />';
+    }
     
     return $ret;
 }
