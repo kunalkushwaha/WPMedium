@@ -48,6 +48,26 @@ $wpmedium_options = array(
                         'value' => 'category',
                     ),
                 ),
+                array(
+                    '_id'         => 'toggle_default_post_thumbnail',
+                    '_title'      => __( 'Toggle Default Post Thumbnail', 'wpmedium' ),
+                    '_options'    => array(
+                        'id'    => 'toggle_default_post_thumbnail',
+                        'help'  => sprintf( __( 'Toggle Default Post Thumbnail Help', 'wpmedium' ) ),
+                        'label' => '',
+                        'value' => '1',
+                    ),
+                ),
+                array(
+                    '_id'         => 'default_post_thumbnail',
+                    '_title'      => __( 'Default Post Thumbnail', 'wpmedium' ),
+                    '_options'    => array(
+                        'id'    => 'default_post_thumbnail',
+                        'help'  => sprintf( __( 'Default Post Thumbnail Help', 'wpmedium' ) ),
+                        'label' => '',
+                        'value' => get_template_directory_uri().'/images/wpmedium-post-thumbnail.jpg',
+                    ),
+                ),
                 /*array(
                     '_id'         => 'toggle_ajax',
                     '_title'      => __( 'Ajax Browsing', 'wpmedium' ),

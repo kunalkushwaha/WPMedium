@@ -31,12 +31,10 @@ get_header(); $term = get_queried_object(); ?>
           </nav>
           
           <div id="content" role="main">
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<?php if ( is_sticky() && !is_paged() ) : ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class( 'sticky' ); ?>>
-<?php else : ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-<?php endif; ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); $class = ''; ?>
+<?php if ( is_sticky() && !is_paged() ) $class .= 'sticky'; ?>
+<?php if ( !has_post_thumbnail() ) $class .= ' no-thumbnail'; ?>
+            <article id="post-<?php the_ID(); ?>" <?php post_class( $class ); ?>>
               <header class="entry-header">
                 <div class="entry-header-image">
                   <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php wpmedium_the_post_thumbnail(); ?></a>
@@ -51,7 +49,9 @@ get_header(); $term = get_queried_object(); ?>
               </div><!-- .entry-content -->
               
               <footer class="entry-meta">
-                <?php printf( '<span class="by-author">%s</span> %s <strong>%s</strong>', get_the_author(), __( 'In', 'wpmedium' ), wpmedium_get_the_taxonomy_list( $wpmedium['general']['default_taxonomy'] ) ); ?><?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link"> | ', '</span>' ); ?>
+                <div class="wrap">
+                  <?php printf( '<span class="by-author">%s</span> %s %s', get_the_author(), __( 'In', 'wpmedium' ), wpmedium_get_the_taxonomy_list( $wpmedium['general']['default_taxonomy'] ) ); ?><?php edit_post_link( __( 'Edit', 'wpmedium' ), '<span class="edit-link"> | ', '</span>' ); ?>
+                </div>
               </footer><!-- .entry-meta -->
             </article>
 <?php endwhile; ?>

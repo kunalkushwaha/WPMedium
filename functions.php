@@ -169,7 +169,7 @@ function hex2rgb( $color ) {
  * @return string Post's thumbnail HTML code.
  */
 function wpmedium_get_post_thumbnail() {
-    global $post;
+    global $post, $wpmedium;
     
     if ( has_post_thumbnail( $post->ID ) ) {
         $attachment =  wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
@@ -187,9 +187,11 @@ function wpmedium_get_post_thumbnail() {
         
         $ret = '<img src="'.$attachment[0].'" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image '.$class.'" />';
     }
-    else {
+    else if ( $wpmedium['general']['toggle_default_post_thumbnail'] == '1' ) {
         $ret = '<img src="'.get_template_directory_uri().'/images/wpmedium-post-thumbnail.jpg" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image default" />';
     }
+    else
+        $ret = '';
     
     return $ret;
 }
@@ -567,15 +569,27 @@ function save_image( $term_id ){
 add_action ( 'edited_term', 'save_image' );
 
 /**
- * Add the theme's custom settings to <head>, overriding default stylesheets
+ * Add the theme's custom settings to <head>, overriding default stylesheets 
+ * and loading more scripts
  * 
  * @since WPMedium 1.0
  */
 function wpmedium_wp_head() {
+    wpmedium_wp_head_styles();
+    wpmedium_wp_head_scripts();
+}
+add_action('wp_enqueue_scripts', 'wpmedium_wp_head');
+
+/**
+ * Add custom styles the theme based on custom options
+ * 
+ * @since WPMedium 1.1
+ */
+function wpmedium_wp_head_styles() {
     global $wpmedium;
-?>
-    <style type="text/css">
-<?php
+    
+    echo '    <style type="text/css">'."\n";
+    
     // background_color
     if ( $wpmedium['display']['background_color'] != '' )
         echo '    body, .site {background: '.$wpmedium['display']['background_color'].' !important;}'."\n";
@@ -603,22 +617,39 @@ function wpmedium_wp_head() {
     // header_title_hover_color
     if ( $wpmedium['display']['header_title_hover_color'] != '' )
         echo '    .entry-header .entry-title a:hover {color: '.$wpmedium['display']['header_title_hover_color'].' !important;}'."\n";
-?>
-    </style>
-<?php
     
-    /*if ( $wpmedium['general']['toggle_ajax'] == 1 ) {
+    echo '    </style>'."\n";
+}
+
+/**
+ * Add custom scripts the theme
+ * 
+ * @since WPMedium 1.1
+ */
+function wpmedium_wp_head_scripts() {
+    global $wpmedium;
+    
+    /*if ( $wpmedium['general']['toggle_ajax'] == '1' ) {
         wp_register_script( 'wpmedium-ajax-browsing', get_template_directory_uri() . '/inc/js/wpmedium-ajax-browsing.js', array( 'jquery' ) );
         wp_register_script( 'history', get_template_directory_uri() . '/inc/js/jquery.history.js', array( 'jquery' ) );
         wp_enqueue_script( 'wpmedium-ajax-browsing' );
         wp_enqueue_script( 'history' );
     }*/
     
+    wp_enqueue_script( 'jquery' );
+    
+    if ( !$wpmedium['general']['toggle_default_post_thumbnail'] ) {
+        wp_register_script( 'masonry', get_template_directory_uri() . '/inc/js/jquery.masonry.min.js', array( 'jquery' ) );
+        wp_enqueue_script( 'masonry' );
+        wp_register_script( 'wpmedium-masonry', get_template_directory_uri() . '/inc/js/jquery.wpmedium.masonry.js', array( 'jquery', 'masonry' ) );
+        wp_enqueue_script( 'wpmedium-masonry' );
+    }
+    
     wp_register_script( 'wpmedium', get_template_directory_uri() . '/inc/js/jquery.wpmedium.js', array( 'jquery' ) );
     wp_enqueue_script( 'wpmedium' );
-    wp_enqueue_script( 'jquery' );
 }
-add_action('wp_enqueue_scripts', 'wpmedium_wp_head');
+
+
 
 /**
  * Add custom style to the theme options page
@@ -766,7 +797,7 @@ function wpmedium_options_callback( $section ) {
         // General options
         case 'toggle_ajax':
             $options = get_option( $wpmedium_options['options']['general_options']['page'] );
-            $html = '<input type="checkbox" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="1" '.checked( (int) $options[$section['id']], 1, false ).' />';
+            $html = '<input type="checkbox" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="1" '.checked( $options[$section['id']], '1', false ).' />';
             $html .= '<label for="'.$section['id'].'"> '.$section['label'].'</label>';
             if ( $section['help'] != '' ) $html .= '<span class="help">'.$section['help'].'</span>';
             echo $html;
@@ -792,6 +823,26 @@ function wpmedium_options_callback( $section ) {
             $html .= '</select>';
             $html .= '<label for="'.$section['id'].'"> '.$section['label'].'</label>';
             if ( $section['help'] != '' ) $html .= '<span class="help">'.$section['help'].'</span>';
+            echo $html;
+            break;
+        case 'toggle_default_post_thumbnail':
+            $options = get_option( $wpmedium_options['options']['general_options']['page'] );
+            $html = '<input type="checkbox" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="1" '.checked( $options[$section['id']], '1', false ).' />';
+            $html .= '<label for="'.$section['id'].'"> '.$section['label'].'</label>';
+            if ( $section['help'] != '' ) $html .= '<span class="help">'.$section['help'].'</span>';
+            echo $html;
+            break;
+        case 'default_post_thumbnail':
+            $options = get_option( $wpmedium_options['options']['general_options']['page'] );
+            $url = esc_url( $options[$section['id']] );
+            $style = ($url == '' ? 'display:none;' : '' );
+            $html = '<div id="upload_post_thumbnail_preview" style="">';
+            $html .= '<img style="max-width:100%;" src="'.$url.'" />';
+            $html .= '</div>';
+            $html .= '<input type="hidden" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="'.esc_attr($options[$section['id']]).'" />';
+            $html .= '<input id="upload_post_thumbnail_button" type="button" class="button-primary" value="'.__( 'Upload Post Thumbnail', 'wpmedium' ).'" />';
+            if ( '' != $options[$section['id']] )
+                $html .= '<input id="delete_post_thumbnail_button" name="'.$wpmedium_options['options']['general_options']['page'].'[delete_post_thumbnail]" type="submit" class="button-primary" value="'.__( 'Delete Post Thumbnail', 'wpmedium' ).'" />';
             echo $html;
             break;
         case 'general_settings_section':

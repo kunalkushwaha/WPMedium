@@ -51,8 +51,10 @@ get_header(); ?>
           </nav>
           
           <div id="content" role="main">
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); $class = ''; ?>
+<?php if ( is_sticky() && !is_paged() ) $class .= ''; ?>
+<?php if ( !has_post_thumbnail() ) $class .= ' no-thumbnail'; ?>
+            <article id="post-<?php the_ID(); ?>" <?php post_class( $class ); ?>>
               <header class="entry-header">
                 <div class="entry-header-image">
                   <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php wpmedium_the_post_thumbnail(); ?></a>

@@ -17,7 +17,7 @@ body {
     background-color: #ececec;
     color: #303239;
     font-family: "PT Sans Narrow", Georgia, sans-serif;
-    font-size: 0.85em;
+    font-size: 100%;
     margin: 0;
     max-width: 100%;
     padding: 0;
@@ -145,14 +145,14 @@ a, a:hover {
     background: #171717;
     color: #fff !important;
     font-family: "Tahoma", serif;
-    font-size: 1.8em;
+    font-size: 1.4em;
     font-weight: bold;
     height: 44px;
-    left: 10px;
+    left: 0.625em;
     line-height: 44px;
     position: fixed;
     text-align: center;
-    top: 10px;
+    top: 0.625em;
     width: 44px;
     z-index: 9999;
     text-decoration: none;
@@ -184,8 +184,8 @@ a, a:hover {
 .site-header {
     background-position: center top;
     background-size: 100%;
-    height: 260px;
-    padding: 80px 20px;
+    height: 16.250em;
+    padding: 5.0em 1.250em;
     text-align: center;
 }
 
@@ -196,7 +196,7 @@ a, a:hover {
 
 .site-header-overlay {
     background: rgba(0, 0, 0, 0.5);
-    height: 420px;
+    height: 26.250em;
     left: 0;
     position: absolute;
     right: 0;
@@ -207,23 +207,23 @@ a, a:hover {
 
 .site-header .site-logo {
     border: 2px solid #fff;
-    border-radius: 90px;
-    height: 90px;
+    border-radius: 5.625em;
+    height: 5.625em;
     margin: 0 auto;
     overflow: hidden;
-    width: 90px;
+    width: 5.625em;
 }
 
 .site-header .site-avatar {
-    border-radius: 90px;
-    height: 90px;
+    border-radius: 5.625em;
+    height: 5.625em;
     margin-left: -25%;
 }
 
 .site-header h1, .site-header h2 {
     color: #fff;
     line-height: 1.2em;
-    margin: 12px auto;
+    margin: 0.750em auto;
     text-align: center;
     width: 100%;
 }
@@ -231,20 +231,20 @@ a, a:hover {
 .site-header h1 {
     font-family: "PT Sans Narrow", sans-serif;
     font-weight: 700;
-    font-size: 44px;
-    line-height: 44px;
+    font-size: 2.750em;
+    line-height: 0.750em;
 }
 
 .site-header h2 {
     font-family: "PT Sans Narrow", serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 1.125em;
 }
 
 .site-header p {
     margin: 0 auto;
     text-align: center;
-    width: auto;
+    width: 48em;
 }
 
 .site-header p a {
@@ -295,7 +295,7 @@ a, a:hover {
     -o-background-size: 1px 100px;
     background-size: 1px 100px;
     color: white !important;
-    height: 45px;
+    height: 2.750em;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -306,7 +306,7 @@ a, a:hover {
 }
 
 .site-menu ul {
-    height: 45px;
+    height: 2.750em;
     position: relative;
 }
 
@@ -331,23 +331,23 @@ a, a:hover {
 .site-menu li.menu-item-search input#s {
     background-color: #666;
     background-image: url(images/search.png);
-    background-position: right 6px;
+    background-position: right 0.375em;
     background-repeat: no-repeat;
     border: 0;
-    border-radius: 20px;
+    border-radius: 1.250em;
     color: #ccc;
-    height: 18px;
-    margin: 6px 8px;
+    height: 1.125em;
+    margin: 0.375em 0.500em;
     max-width: 80%;
     outline: 0;
-    padding-left: 8px;
+    padding-left: 0.500em;
     position: absolute;
     right: 0;
-    width: 20px;
+    width: 1.700em;
 }
 
 .site-menu li.menu-item-search input#s:focus {
-    width: 250px;
+    width: 15.625em;
 }
 
 .site-menu li.menu-item-search input#s,
@@ -369,11 +369,11 @@ a, a:hover {
     color: #888 !important;
     display: block;
     float: left;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bold;
-    height: 45px;
-    line-height: 45px;
-    padding: 0 22px;
+    height: 2.750em;
+    line-height: 3em;
+    padding: 0 1.375em;
     text-shadow: 0 -1px 1px #111;
 }
 
@@ -409,8 +409,8 @@ a, a:hover {
 
 .site-categories {
     border-bottom: 1px solid #aaa;
-    height: 40px;
-    margin: 10px auto 0 auto;
+    height: 2.500em;
+    margin: 0.625em auto 0 auto;
     overflow: visible !important;
 }
 
@@ -419,9 +419,9 @@ a, a:hover {
     display: block;
     float: left;
     font-size: 1em;
-    height: 40px;
-    line-height: 40px;
-    padding: 0 22px;
+    height: 2.500em;
+    line-height: 2.500em;
+    padding: 0 1.375em;
     text-decoration: none;
 }
 
@@ -440,18 +440,19 @@ a, a:hover {
     display: block;
     font-size: small;
     height: 100%;
-    line-height: 45px;
-    padding: 0 18px;
+    line-height: 2.750em;
+    padding: 0 1.125em;
     text-decoration: none;
 }
 
 #main {
-    margin: 25px auto 50px auto;
+    margin: 1.500em auto 3em auto;
 }
 
 #content {
     margin: 0 auto;
-    padding: 15px 0;
+    padding: 1em 0 2.500em 0;
+    position: relative;
 }
 
 .site-content {
@@ -461,21 +462,22 @@ a, a:hover {
 }
 
 .site-content .pagination {
+    bottom: -1.250em;
     clear: both;
-    margin: 25px auto;
-    position: relative;
+    margin: 1.500em auto;
+    position: absolute;
     text-align: center;
     width: 100%;
 }
 
 .site-content .pagination-left {
-    left: 25px;
+    left: 1.500em;
     position: absolute;
 }
 
 .site-content .pagination-right {
     position: absolute;
-    right: 25px;
+    right: 1.500em;
 }
 
 .site-content article {
@@ -483,17 +485,17 @@ a, a:hover {
     border: 0;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     float: left;
-    margin: 10px;
-    min-height: 580px;
+    margin: 0.625em;
+    min-height: 36em;
     padding: 0;
     position: relative;
-    width: 365px;
+    width: 22.750em;
 }
 
 .site-content article.no-result,
 .site-content article.not-found {
     height: auto;
-    min-height: 300px;
+    min-height: 18.750em;
 }
 
 .site-content article.empty {
@@ -501,9 +503,9 @@ a, a:hover {
     border: 3px dashed #ddd;
     box-shadow: 0 0 0;
     height: auto;
-    min-height: 296px;
+    min-height: 18.500em;
     text-align: center;
-    width: 358px;
+    width: 22.375em;
 }
 
 .site-content article.empty .entry-title {
@@ -511,7 +513,7 @@ a, a:hover {
     font-family: Georgia;
     font-size: 2.5em;
     font-style: italic;
-    margin-top: 125px !important;
+    margin-top: 7.750em !important;
 }
 
 .site-content article.empty:hover {
@@ -527,13 +529,19 @@ a, a:hover {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
+.site-content article.no-thumbnail,
+.site-content article.no-thumbnail .entry-header-image {
+    height: auto;
+    min-height: auto;
+}
+
 .entry-header .entry-title, .entry-content {
-    padding: 0 25px;
+    padding: 0 1.5em;
 }
 
 .entry-header .entry-title {
     font-weight: bold;
-    margin: 25px 0 0 0;
+    margin: 1.5em 0 0 0;
 }
 
 .entry-header .entry-title a {
@@ -545,7 +553,7 @@ a, a:hover {
 }
 
 .entry-header-image, .entry-header img {
-    height: 245px;
+    height: 15.250em;
     overflow: hidden;
 }
 
@@ -569,16 +577,16 @@ a, a:hover {
 }
 
 .entry-content {
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 75px;
+    font-size: 1em;
+    line-height: 1.7em;
+    margin-bottom: 4.750em;
     text-align: justify;
 }
 
 .entry-meta {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
-    font-size: 12px;
-    padding: 10px 0;
+    font-size: 0.75em;
+    padding: 0.625em 0;
 }
 
 .entry-meta a:hover {
@@ -586,15 +594,15 @@ a, a:hover {
 }
 
 .entry-comment {
-    margin-top: 50px;
+    margin-top: 3em;
 }
 
 .entry-comment .toggle-comments {
     background: #ccc;
     border-radius: 3px;
-    line-height: 28px;
+    line-height: 1.75em;
     opacity: 0.5;
-    padding: 10px;
+    padding: 0.625em;
 }
 
 .entry-comment .toggle-comments:hover {
@@ -611,15 +619,15 @@ a, a:hover {
 
 #comments {
     display: none;
-    margin: 50px 0 25px 25px;
+    margin: 3em 0 1.5em 1.5em;
 }
 
 .comment-body {
     background: #fafafa;
     border-radius: 3px;
     box-shadow: 0 2px 4px #ddd;
-    margin: 20px 0;
-    padding: 12px;
+    margin: 1.25em 0;
+    padding: 0.75em;
 }
 
 .comment-author img.avatar {
@@ -631,23 +639,11 @@ a, a:hover {
 
 .comment-meta {
     margin: 0;
-    padding: 0 0 12px 46px;
+    padding: 0 0 0.75em 2.875em;
 }
 
 .reply {
     display: none;
-}
-
-.featured-post {
-    background: url(images/ribbons.png) center top no-repeat;
-    border: 0 !important;
-    height: 80px;
-    left: -11px;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: -9px;
-    width: 128px;
 }
 
 
@@ -661,7 +657,7 @@ a, a:hover {
 
 #single #main,
 #page #main {
-    width: 640px;
+    width: 40em;
 }
 
 #single article,
@@ -669,7 +665,8 @@ a, a:hover {
     background: transparent;
     box-shadow: 0 0 0;
     float: none;
-    width: 640px;
+    margin: 0 auto;
+    width: 40em;
 }
 
 #single .entry-title,
@@ -681,13 +678,13 @@ a, a:hover {
 
 #single .entry-title,
 #page .entry-title {
-    font-size: 4.5em;
-    margin: 25px 0;
+    font-size: 4em;
+    margin: 0.563em 0;
 }
 
 #single .entry-thumb,
 #page .entry-thumb {
-    margin: 0 0 15px 0;
+    margin: 0 0 1em 0;
     position: relative;
     width: 100%;
 }
@@ -716,7 +713,7 @@ a, a:hover {
     border: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     font-size: 1em;
-    padding: 12px 0;
+    padding: 0.75em 0;
     width: 100%;
 }
 
@@ -740,7 +737,7 @@ a, a:hover {
 
 #single .entry-content,
 #page .entry-content {
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 
 #single .entry-tags,
@@ -749,7 +746,7 @@ a, a:hover {
     border-radius: 4px;
     font-size: 1em;
     opacity: 0.35;
-    padding: 6px 8px;
+    padding: 0.375em 0.5em;
 }
 
 #single .entry-tags:hover,
@@ -770,35 +767,35 @@ a, a:hover {
 #single .entry-author,
 #page .entry-author {
     border-top: 3px solid #ccc;
-    font-size: 1.5em;
-    margin-top: 50px;
-    padding: 25px;
+    font-size: 1.25em;
+    margin-top: 3em;
+    padding: 1.5em;
 }
 
 #single .entry-author .author-avatar,
 #page .entry-author .author-avatar {
     float: left;
-    width: 75px;
+    width: 4.750em;
 }
 
 #single .entry-author .author-description,
 #page .entry-author .author-description {
     float: left;
-    margin-left: 12px;
-    min-height: 85px;
-    width: 325px;
+    margin-left: 0.75em;
+    min-height: 5.250em;
+    width: 16em;
 }
 
 #single .entry-author .author-avatar img,
 #page .entry-author .author-avatar img {
-    border-radius: 68px;
-    height: 68px;
-    width: 68px;
+    border-radius: 4.250em;
+    height: 4.250em;
+    width: 4.250em;
 }
 
 #single .entry-author .author-description h6,
 #page .entry-author .author-description h6 {
-    margin: 6px 0;
+    margin: 0.375em 0;
 }
 
 #single .entry-author .author-description p,
@@ -813,14 +810,14 @@ a, a:hover {
     color: #444;
     font-size: 0.75em;
     float: left;
-    margin-left: 20px;
-    min-height: 85px;
-    padding-left: 24px;
+    margin-left: 1.25em;
+    min-height: 5.250em;
+    padding-left: 1.5em;
 }
 
 #single .entry-date h6,
 #page .entry-date h6 {
-    margin: 6px 0;
+    margin: 0.375em 0;
 }
 
 #single .entry-date .date,
@@ -834,7 +831,7 @@ a, a:hover {
  */ 
 
 #archive .site-header {
-    height: 160px;
+    height: 10em;
 }
 
 #archive .site-title {
@@ -846,12 +843,12 @@ a, a:hover {
 }
 
 #archive .sticky {
-    width: 750px;
+    width: 73em;
 }
 
 #archive .sticky .entry-header-image img {
     height: auto;
-    width: 750px;
+    width: 73em;
 }
 
 #archive .sticky .entry-meta {
@@ -859,12 +856,12 @@ a, a:hover {
 }
 
 #archive .entry-title {
-    margin: 25px 0 0 0;
+    margin: 1.5em 0 0 0;
 }
 
 .archive-menu {
     background: #dededc;
-    height: 45px;
+    height: 2.75em;
     margin: 0 auto;
     overflow: visible !important;
 }
@@ -877,7 +874,7 @@ a, a:hover {
 .archive-controls li {
     border-right: 6px solid #ededeb;
     float: left;
-    height: 45px;
+    height: 2.75em;
     position: relative;
 }
 
@@ -888,10 +885,10 @@ a, a:hover {
     color: #fff;
     display: block;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1em;
     height: 100%;
-    line-height: 45px;
-    padding: 0 18px;
+    line-height: 2.75em;
+    padding: 0 1.125em;
     text-decoration: none;
 }
 
@@ -914,7 +911,7 @@ a, a:hover {
 .archive-controls .active:after {
     border: 6px solid transparent;
     border-top-color: #b3b3b1;
-    bottom: -12px;
+    bottom: -0.75em;
     content: ' ';
     height: 0;
     left: 50%;
@@ -939,6 +936,7 @@ a, a:hover {
     background: transparent;
     color: #666;
     font-size: small;
+    line-height: 3.5em;
 }
 
 .archive-post-backlink {
@@ -966,15 +964,12 @@ a, a:hover {
 #home .entry-meta {
     bottom: 0;
     position: absolute;
-    width: 315px;
+    width: 100%;
 }
 
 /** Media relative **/
 
 @media screen and (min-width: 78em) {
-    #WP {
-        left: 4%;
-    }
     
     #main {
         width: 1155px;
@@ -987,23 +982,21 @@ a, a:hover {
 }
 
 @media screen and (min-width: 53em) and (max-width: 78em) {
-    #WP {
-        left: 4%;
-    }
     
-    #main {
-        width: 770px;
-    }
-    
+    #main, 
+    #content, 
     .site-menu,
     .site-categories,
     .archive-menu {
-        width: 750px !important;
+        width: 96% !important;
     }
     
     .site-content article.sticky,
-    .site-content article.sticky .entry-meta {
-        width: 750px !important;
+    #home article.post,
+    #archive article.post {
+        margin-left: 1.25%;
+        margin-right: 1.25%;
+        width: 47.5% !important;
     }
     
     article.sticky .entry-header {
@@ -1013,11 +1006,7 @@ a, a:hover {
     
     article.sticky .entry-header img {
 	height: auto;
-        width: 750px !important;
-    }
-    
-    #archive article.post {
-        max-height: 100% !important;
+        width: 100% !important;
     }
 }
 
@@ -1066,8 +1055,18 @@ a, a:hover {
     }
     
     .site-content article {
-        margin: 15px 0 !important;
+        margin: 1em 0 !important;
         min-height: auto;
+        width: 100% !important;
+    }
+    
+    .entry-header-image {
+        height: 100%;
+        max-height: 245px;
+    }
+    
+    .entry-header img.wp-post-image {
+        height: auto;
         width: 100% !important;
     }
     
@@ -1080,7 +1079,7 @@ a, a:hover {
     }
     
     #single .entry-author {
-        padding: 15px 10px;
+        padding: 1em 0.625em;
         width: 100% !important;
     }
     
@@ -1088,9 +1087,9 @@ a, a:hover {
         border: 0;
         clear: both;
         float: none;
-        margin: 15px 0 0 0;
-        min-height: 45px;
-        padding: 15px 0 0 0;
+        margin: 1em 0 0 0;
+        min-height: 2.75em;
+        padding: 1em 0 0 0;
     }
     
     #single .entry-date h6 {
@@ -1159,7 +1158,7 @@ a, a:hover {
     }
     
     .site-content article {
-        margin: 15px 0 !important;
+        margin: 0.938em 0 !important;
         width: 100% !important;
     }
     
@@ -1167,11 +1166,17 @@ a, a:hover {
         width: 100%;
     }
     
-    .entry-header-image, .entry-header img {
-        height: 210px;
+    #single article {
+        width: 100% !important;
     }
     
-    #single article {
+    .entry-header-image {
+        height: 100%;
+        max-height: 15.250em;
+    }
+    
+    .entry-header img.wp-post-image {
+        height: auto;
         width: 100% !important;
     }
     
@@ -1180,7 +1185,7 @@ a, a:hover {
     }
     
     #single .entry-author {
-        padding: 15px 10px;
+        padding: 0.938em 0.625em;
     }
     
     #single .entry-author .author-avatar img {
@@ -1189,20 +1194,20 @@ a, a:hover {
     }
     
     #single .entry-author .author-avatar {
-        width: 55px;
+        width: 3.500em;
     }
     
     #single .entry-author .author-description {
-        width: 210px;
+        width: 20.625em;
     }
     
     #single .entry-date {
         border: 0;
         clear: both;
         float: none;
-        margin: 15px 0 0 0;
-        min-height: 45px;
-        padding: 15px 0 0 0;
+        margin: 0.938em 0 0 0;
+        min-height: 2.75em;
+        padding: 0.938em 0 0 0;
     }
     
     #single .entry-date h6 {
@@ -1280,7 +1285,7 @@ a, a:hover {
     
     .entry-header-image {
         height: 100%;
-        max-height: 245px;
+        max-height: 15.250em;
     }
     
     .entry-header img.wp-post-image {

@@ -26,6 +26,32 @@ jQuery(document).ready(function($) {
         }
     }
     
+    if ( $('#upload_post_thumbnail_button').length > 0 ) {
+    
+        $('#upload_post_thumbnail_button').click(function(e) {
+            tb_show('Mediacenter', 'media-upload.php?referer=wpmedium_theme_options&type=image&TB_iframe=true&post_id=0', false);  
+            e.preventDefault();
+        });
+        
+        $('#delete_post_thumbnail_button').click(function(e) {
+            $('#default_post_thumbnail').val('');
+            $('#upload_post_thumbnail_preview').find('img').remove();
+            $(this).hide();
+        });
+        
+        window.send_to_editor = function(html) {  
+            var image_url = $('img',html).attr('src');
+            $('input#default_post_thumbnail').val(image_url);
+            tb_remove();
+            $('#delete_post_thumbnail_button').show();
+            if ( $('#upload_post_thumbnail_preview img').length > 0 )
+                $('#upload_post_thumbnail_preview img').attr('src', image_url);
+            else
+                $('#upload_post_thumbnail_preview').html('<img style="max-width:100%;" src="'+image_url+'" />');
+            $('#submit_general_options').trigger('click');
+        }
+    }
+    
     if ( $('#upload_taxonomy_image').length > 0 ) {
     
         $('#upload_taxonomy_image').click(function(e) {
