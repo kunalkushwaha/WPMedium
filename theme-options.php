@@ -93,9 +93,9 @@ $wpmedium_options = array(
                     '_title'      => __( 'Background Color', 'wpmedium' ),
                     '_options'    => array(
                         'id'    => 'background_color',
-                        'help'  => sprintf( __( 'Background Color Help %s', 'wpmedium' ), '#ececec' ),
+                        'help'  => sprintf( __( 'Background Color Help %s', 'wpmedium' ), '#f9f9f9' ),
                         'label' => '',
-                        'value' => '#ececec',
+                        'value' => '#f9f9f9',
                     ),
                 ),
                 // Link color
@@ -104,9 +104,9 @@ $wpmedium_options = array(
                     '_title'      => __( 'Text Color', 'wpmedium' ),
                     '_options'    => array(
                         'id'    => 'text_color',
-                        'help'  => sprintf( __( 'Text Color Help %s', 'wpmedium' ), '#303239' ),
+                        'help'  => sprintf( __( 'Text Color Help %s', 'wpmedium' ), '#1d1d1d' ),
                         'label' => '',
-                        'value' => '#303239',
+                        'value' => '#1d1d1d',
                     ),
                 ),
                 // Header overlay color

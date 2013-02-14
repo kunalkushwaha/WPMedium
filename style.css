@@ -14,9 +14,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 /** Basics **/
 
 body {
-    background-color: #ececec;
-    color: #303239;
-    font-family: "PT Sans Narrow", Georgia, sans-serif;
+    background-color: #f9f9f9;
+    color: #1d1d1d;
+    font-family: "Libre Baskerville", Georgia, sans-serif;
     font-size: 100%;
     margin: 0;
     max-width: 100%;
@@ -236,7 +236,7 @@ a, a:hover {
 }
 
 .site-header h2 {
-    font-family: "PT Sans Narrow", serif;
+    font-family: "PT Sans Narrow", sans-serif;
     font-weight: 400;
     font-size: 1.125em;
 }
@@ -372,7 +372,7 @@ a, a:hover {
     font-size: 1em;
     font-weight: bold;
     height: 2.750em;
-    line-height: 3em;
+    line-height: 2.750em;
     padding: 0 1.375em;
     text-shadow: 0 -1px 1px #111;
 }
@@ -409,6 +409,7 @@ a, a:hover {
 
 .site-categories {
     border-bottom: 1px solid #aaa;
+    font-family: "PT Sans Narrow", sans-serif;
     height: 2.500em;
     margin: 0.625em auto 0 auto;
     overflow: visible !important;
@@ -464,6 +465,7 @@ a, a:hover {
 .site-content .pagination {
     bottom: -1.250em;
     clear: both;
+    font-family: "PT Sans Narrow", sans-serif;
     margin: 1.500em auto;
     position: absolute;
     text-align: center;
@@ -583,8 +585,14 @@ a, a:hover {
     text-align: justify;
 }
 
+#home .entry-content,
+#archive .entry-content {
+    font-size: 0.9em;
+}
+
 .entry-meta {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: "PT Sans Narrow", sans-serif;
     font-size: 0.75em;
     padding: 0.625em 0;
 }
@@ -594,6 +602,7 @@ a, a:hover {
 }
 
 .entry-comment {
+    font-family: "PT Sans Narrow", sans-serif;
     margin-top: 3em;
 }
 
@@ -703,6 +712,7 @@ a, a:hover {
     border-radius: 2px 0 2px 0;
     color: #ccc;
     bottom: 4px;
+    font-family: "PT Sans Narrow", sans-serif;
     padding: 6px;
     position: absolute;
     right: 0;
@@ -712,6 +722,7 @@ a, a:hover {
 #page .entry-meta {
     border: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: "PT Sans Narrow", sans-serif;
     font-size: 1em;
     padding: 0.75em 0;
     width: 100%;
@@ -721,6 +732,7 @@ a, a:hover {
 #single .entry-meta .in-category,
 #page .entry-meta .by-author,
 #page .entry-meta .in-category {
+    font-family: "PT Sans Narrow", sans-serif;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -737,13 +749,14 @@ a, a:hover {
 
 #single .entry-content,
 #page .entry-content {
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 
 #single .entry-tags,
 #page .entry-tags {
     background: #ccc;
     border-radius: 4px;
+    font-family: "PT Sans Narrow", sans-serif;
     font-size: 1em;
     opacity: 0.35;
     padding: 0.375em 0.5em;
@@ -767,6 +780,7 @@ a, a:hover {
 #single .entry-author,
 #page .entry-author {
     border-top: 3px solid #ccc;
+    font-family: "PT Sans Narrow", sans-serif;
     font-size: 1.25em;
     margin-top: 3em;
     padding: 1.5em;
