@@ -33,7 +33,7 @@ get_header(); $term = get_queried_object(); ?>
           <div id="content" role="main">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); $class = ''; ?>
 <?php if ( is_sticky() && !is_paged() ) $class .= 'sticky'; ?>
-<?php if ( !has_post_thumbnail() ) $class .= ' no-thumbnail'; ?>
+<?php if ( !has_post_thumbnail() && !$wpmedium['general']['toggle_default_post_thumbnail'] ) $class .= ' no-thumbnail'; ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class( $class ); ?>>
               <header class="entry-header">
                 <div class="entry-header-image">
