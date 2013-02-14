@@ -11,6 +11,7 @@
   <head>
     
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
     
     <title><?php is_home() ? printf( '%s | %s', get_bloginfo( 'name' ), get_bloginfo( 'description' ) ) : printf( '%s | %s', wp_title(''), get_bloginfo( 'name' ) ); ?></title>
     
