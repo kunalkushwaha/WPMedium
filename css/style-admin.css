@@ -1,3 +1,10 @@
+input.button-primary,
+button.button-primary,
+a.button-primary {
+    display: block;
+    margin: 7px 0;
+}
+
 .theme_options_menu {
     background: url(../images/wpmedium-admin-bg.png);
     border-bottom: 5px solid #2480ff;
@@ -150,6 +157,14 @@
     font-weight: bold;
     width: 40px;
 }
+
+.theme_options_content #upload_logo_preview img,
+.theme_options_content #upload_post_thumbnail_preview img {
+    float: left;
+    margin-right: 10px;
+    max-width: 200px;
+}
+
 
 .theme_options_content #slider-range-max {
     background-color: rgba(0, 0, 0, 0.5);

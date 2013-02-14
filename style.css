@@ -243,6 +243,7 @@ a, a:hover {
 
 .site-header p {
     margin: 0 auto;
+    max-width: 80%;
     text-align: center;
     width: 48em;
 }

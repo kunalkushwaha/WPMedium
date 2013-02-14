@@ -807,7 +807,7 @@ function wpmedium_options_callback( $section ) {
             $url = esc_url( $options[$section['id']] );
             $style = ($url == '' ? 'display:none;' : '' );
             $html = '<div id="upload_logo_preview" style="">';
-            $html .= '<img style="max-width:100%;" src="'.$url.'" />';
+            $html .= '<img src="'.$url.'" alt="" />';
             $html .= '</div>';
             $html .= '<input type="hidden" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="'.esc_attr($options[$section['id']]).'" />';
             $html .= '<input id="upload_logo_button" type="button" class="button-primary" value="'.__( 'Upload Logo', 'wpmedium' ).'" />';
@@ -837,7 +837,7 @@ function wpmedium_options_callback( $section ) {
             $url = esc_url( $options[$section['id']] );
             $style = ($url == '' ? 'display:none;' : '' );
             $html = '<div id="upload_post_thumbnail_preview" style="">';
-            $html .= '<img style="max-width:100%;" src="'.$url.'" />';
+            $html .= '<img src="'.$url.'" alt="" />';
             $html .= '</div>';
             $html .= '<input type="hidden" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="'.esc_attr($options[$section['id']]).'" />';
             $html .= '<input id="upload_post_thumbnail_button" type="button" class="button-primary" value="'.__( 'Upload Post Thumbnail', 'wpmedium' ).'" />';
