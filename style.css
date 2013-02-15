@@ -1001,20 +1001,19 @@ a, a:hover {
     #main, 
     #content, 
     .archive-menu {
-        width: 96% !important;
+        width: 60em !important;
+    }
+    
+    .site-menu,
+    .site-categories{
+        width: 98% !important;
     }
     
     .site-content article.sticky,
     #home article.post,
     #archive article.post {
-        margin-left: 1.15%;
-        margin-right: 1.15%;
-        width: 31% !important;
-    }
-    
-    .site-menu,
-    .site-categories{
-        width: 94% !important;
+        margin: 0.5em !important;
+        width: 19em !important;
     }
     
     article.sticky .entry-header {
@@ -1028,9 +1027,25 @@ a, a:hover {
     }
 }
 
+@media screen and (min-width: 48em) and (max-width: 60em) {
+    
+    #main, 
+    #content, 
+    .site-menu,
+    .site-categories,
+    .archive-menu {
+        width: 48em !important;
+    }
+    
+    .site-content article.sticky,
+    #home article.post,
+    #archive article.post {
+        margin: 0.5em;
+        width: 23em !important;
+    }
+}
 
-
-@media screen and (min-width: 24em) and (max-width: 60em) {
+@media screen and (min-width: 24em) and (max-width: 48em) {
     #WP {
         left: 4%;
     }
