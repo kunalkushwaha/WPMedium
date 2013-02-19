@@ -142,18 +142,18 @@ a, a:hover {
 /** WPMedium Home Link **/
 
 #WP {
-    background: #171717;
+    background: #dfdfdf;
     color: #fff !important;
     font-family: "Tahoma", serif;
     font-size: 1.4em;
     font-weight: bold;
-    height: 44px;
+    height: auto;
     left: 0.625em;
-    line-height: 44px;
+    padding: 0 4px;
     position: fixed;
     text-align: center;
     top: 0.625em;
-    width: 44px;
+    width: auto;
     z-index: 9999;
     text-decoration: none;
     text-shadow: 1px 1px 0 #000;
@@ -319,10 +319,12 @@ a, a:hover {
 
 .site-menu li:first-child a {
     border-left: 0;
+    border-radius: 6px 0 0 6px;
 }
 
 .site-menu li:last-child a {
     border-right: 0;
+    border-radius: 0 6px 6px 0;
 }
 
 .site-menu li.menu-item-search {
@@ -338,7 +340,7 @@ a, a:hover {
     border-radius: 1.250em;
     color: #ccc;
     height: 1.125em;
-    margin: 0.375em 0.500em;
+    margin: 0.500em;
     max-width: 80%;
     outline: 0;
     padding-left: 0.500em;
@@ -516,7 +518,7 @@ a, a:hover {
     font-family: Georgia;
     font-size: 2.5em;
     font-style: italic;
-    margin-top: 7.750em !important;
+    margin-top: 2.750em !important;
 }
 
 .site-content article.empty:hover {

@@ -624,6 +624,9 @@ function wpmedium_wp_head_styles() {
     // background_color
     if ( $wpmedium['display']['background_color'] != '' )
         echo '    body, .site {background: '.$wpmedium['display']['background_color'].' !important;}'."\n";
+    // W_background_color
+    if ( $wpmedium['display']['W_background_color'] != '' )
+        echo '    #WP {background: '.$wpmedium['display']['W_background_color'].' !important;}'."\n";
     // text_color
     if ( $wpmedium['display']['text_color'] != '' )
         echo '    body, .site {color: '.$wpmedium['display']['text_color'].' !important;}'."\n";
@@ -895,6 +898,7 @@ function wpmedium_options_callback( $section ) {
             break;
         // Display options
         case 'background_color':
+        case 'W_background_color':
         case 'text_color':
         case 'header_overlay_color':
         case 'header_sidebar_color':

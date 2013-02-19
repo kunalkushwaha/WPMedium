@@ -108,6 +108,17 @@ $wpmedium_options = array(
                         'value' => '#f9f9f9',
                     ),
                 ),
+                // W box background color
+                array(
+                    '_id'         => 'W_background_color',
+                    '_title'      => __( 'W Background Color', 'wpmedium' ),
+                    '_options'    => array(
+                        'id'    => 'W_background_color',
+                        'help'  => sprintf( __( 'W Background Color Help %s', 'wpmedium' ), '#dfdfdf' ),
+                        'label' => '',
+                        'value' => '#dfdfdf',
+                    ),
+                ),
                 // Link color
                 array(
                     '_id'         => 'text_color',
