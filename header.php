@@ -31,4 +31,4 @@
   
   <body <?php body_class(); ?>>
     
-    <a id="WP" href="<?php echo home_url(); ?>"<?php if( is_admin_bar_showing() ) echo ' style="top:38px;"'; ?>>W</a>
+    <a id="WP" href="<?php echo home_url(); ?>"<?php if( is_admin_bar_showing() ) echo ' style="top:38px;"'; ?>><?php wpmedium_the_W(); ?></a>

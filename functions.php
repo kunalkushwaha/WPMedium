@@ -187,7 +187,11 @@ function wpmedium_get_post_thumbnail() {
         
         $ret = '<img src="'.$attachment[0].'" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image '.$class.'" />';
     }
-    else if ( $wpmedium['general']['toggle_default_post_thumbnail'] == '1' ) {
+    else if ( $wpmedium['general']['toggle_default_post_thumbnail'] != '1' && $wpmedium['general']['default_post_thumbnail'] != '' ) {
+        $ret = '<img src="'.esc_url( $wpmedium['general']['default_post_thumbnail'] ).'" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image default" />';
+    }
+    else if ( ( $wpmedium['general']['toggle_default_post_thumbnail'] == '1' || $wpmedium['general']['default_post_thumbnail'] == '' ) && file_exists( get_template_directory().'/images/wpmedium-post-thumbnail.jpg' ) ) {
+        
         $ret = '<img src="'.get_template_directory_uri().'/images/wpmedium-post-thumbnail.jpg" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image default" />';
     }
     else
@@ -402,9 +406,9 @@ function wpmedium_the_index_controls() {
  */
 function wpmedium_get_site_logo() {
     global $wpmedium;
-    if ( $wpmedium['general']['site_logo'] != '' )
+    if ( isset( $wpmedium['general']['site_logo'] ) && $wpmedium['general']['site_logo'] != '' )
         return '<img class="site-avatar" src="'.esc_url( $wpmedium['general']['site_logo'] ).'" alt="" />';
-    else
+    else if ( file_exists( get_template_directory().'/images/wp-badge.png' ) )
         return '<img class="site-avatar" src="'.get_template_directory_uri().'/images/wp-badge.png" alt="" style="height:auto;margin:-22px 0 0 -42px;" />';
 }
 
@@ -415,6 +419,33 @@ function wpmedium_get_site_logo() {
  */
 function wpmedium_the_site_logo() {
     echo wpmedium_get_site_logo();
+}
+
+/**
+ * Get the WPMedium "W" link image
+ * 
+ * @since WPMedium 1.1
+ */
+function wpmedium_get_W() {
+    global $wpmedium;
+    
+    if ( isset( $wpmedium['general']['W_image'] ) && $wpmedium['general']['W_image'] != '' )
+        $ret = '<img src="'.esc_url( $wpmedium['general']['W_image'] ).'" alt="W" />';
+    else if ( file_exists( get_template_directory().'/images/WPMedium-logo-simple-32.png' ) )
+        $ret = '<img src="'.get_template_directory_uri().'/images/WPMedium-logo-simple-32.png" alt="W" />';
+    else
+        $ret = '';
+    
+    return $ret;
+}
+
+/**
+ * Display the WPMedium "W" link image
+ * 
+ * @since WPMedium 1.1
+ */
+function wpmedium_the_W() {
+    echo wpmedium_get_W();
 }
 
 /**
@@ -843,6 +874,19 @@ function wpmedium_options_callback( $section ) {
             $html .= '<input id="upload_post_thumbnail_button" type="button" class="button-primary" value="'.__( 'Upload Post Thumbnail', 'wpmedium' ).'" />';
             if ( '' != $options[$section['id']] )
                 $html .= '<input id="delete_post_thumbnail_button" name="'.$wpmedium_options['options']['general_options']['page'].'[delete_post_thumbnail]" type="submit" class="button-primary" value="'.__( 'Delete Post Thumbnail', 'wpmedium' ).'" />';
+            echo $html;
+            break;
+        case 'W_image':
+            $options = get_option( $wpmedium_options['options']['general_options']['page'] );
+            $url = esc_url( $options[$section['id']] );
+            $style = ($url == '' ? 'display:none;' : '' );
+            $html = '<div id="upload_W_image_preview" style="">';
+            $html .= '<img src="'.$url.'" alt="" />';
+            $html .= '</div>';
+            $html .= '<input type="hidden" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="'.esc_attr($options[$section['id']]).'" />';
+            $html .= '<input id="upload_W_image_button" type="button" class="button-primary" value="'.__( 'Upload W Image', 'wpmedium' ).'" />';
+            if ( '' != $options[$section['id']] )
+                $html .= '<input id="delete_W_image_button" name="'.$wpmedium_options['options']['general_options']['page'].'[delete_W_image]" type="submit" class="button-primary" value="'.__( 'Delete W Image', 'wpmedium' ).'" />';
             echo $html;
             break;
         case 'general_settings_section':

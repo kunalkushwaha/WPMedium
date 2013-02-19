@@ -68,6 +68,16 @@ $wpmedium_options = array(
                         'value' => get_template_directory_uri().'/images/wpmedium-post-thumbnail.jpg',
                     ),
                 ),
+                array(
+                    '_id'         => 'W_image',
+                    '_title'      => __( 'W Image', 'wpmedium' ),
+                    '_options'    => array(
+                        'id'    => 'W_image',
+                        'help'  => sprintf( __( 'W Image Help', 'wpmedium' ) ),
+                        'label' => '',
+                        'value' => get_template_directory_uri().'/images/WPMedium-logo-simple-64.png',
+                    ),
+                ),
                 /*array(
                     '_id'         => 'toggle_ajax',
                     '_title'      => __( 'Ajax Browsing', 'wpmedium' ),
