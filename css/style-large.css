@@ -1,0 +1,15 @@
+
+    #main, 
+    #content, 
+    .site-menu,
+    .site-categories,
+    .archive-menu {
+        width: 48em !important;
+    }
+    
+    .site-content article.sticky,
+    #home article.post,
+    #archive article.post {
+        margin: 0.5em;
+        width: 23em !important;
+    }

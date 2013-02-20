@@ -1,0 +1,28 @@
+
+    #main, 
+    #content, 
+    .archive-menu {
+        width: 60em !important;
+    }
+    
+    .site-menu,
+    .site-categories{
+        width: 98% !important;
+    }
+    
+    .site-content article.sticky,
+    #home article.post,
+    #archive article.post {
+        margin: 0.5em !important;
+        width: 29em !important;
+    }
+    
+    article.sticky .entry-header {
+        /*height: 260px !important;*/
+        overflow: hidden !important;
+    }
+    
+    article.sticky .entry-header img {
+	height: auto;
+        width: 100% !important;
+    }

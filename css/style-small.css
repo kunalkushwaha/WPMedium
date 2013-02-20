@@ -1,0 +1,117 @@
+
+    #WP {
+        left: 4%;
+    }
+    
+    .site-header {
+        background-size: auto 100%;
+    }
+    
+    #main, 
+    .site-menu,
+    .site-categories,
+    .archive-menu {
+        width: 98% !important;
+    }
+    
+    .site-menu, .archive-menu {
+        overflow: visible;
+        height: auto;
+    }
+    
+    .site-menu {
+        border: 0;
+    }
+    
+    .site-menu ul {
+        height: 100%;
+    }
+    
+    .site-menu li {
+        display: inline-block;
+        float: none;
+    }
+    
+    .site-menu li.menu-item-search {
+        float: none;
+    }
+    
+    .site-menu li.menu-item-search input#s {
+        position: relative;
+        width: 195%;
+    }
+    
+    .site-menu a {
+        border: 0;
+        border-radius: 4px;
+        line-height: 3.0em;
+    }
+    
+    .site-header h1, .site-header h2 {
+        width: 100% !important;
+    }
+    
+    .site-content .post {
+        margin: 0.938em 0 !important;
+        width: 100% !important;
+    }
+    
+    .entry-meta {
+        width: 100%;
+    }
+    
+    #single .post {
+        width: 98% !important;
+    }
+    
+    .entry-header-image {
+        height: 100%;
+        max-height: 15.250em;
+    }
+    
+    .entry-header img.wp-post-image {
+        height: auto;
+        width: 100% !important;
+    }
+    
+    #single .entry-thumb img {
+        width: 100% !important;
+    }
+    
+    #single .entry-author {
+        padding: 0.938em 0.625em;
+    }
+    
+    #single .entry-author .author-avatar img {
+        height: 48px;
+        width: 48px;
+    }
+    
+    #single .entry-author .author-avatar {
+        width: 3.500em;
+    }
+    
+    #single .entry-author .author-description {
+        width: 65%;
+    }
+    
+    #single .entry-date {
+        border: 0;
+        clear: both;
+        float: none;
+        margin: 0.938em 0 0 0;
+        min-height: 2.75em;
+        padding: 0.938em 0 0 0;
+    }
+    
+    #single .entry-date h6 {
+        display: inline-block;
+    }
+    
+    #archive .post {
+        max-height: 100% !important;
+    }
+    
+    .archive-post-backlink {
+        display: none !important;
+    }

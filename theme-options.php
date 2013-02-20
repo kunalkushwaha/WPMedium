@@ -169,9 +169,9 @@ $wpmedium_options = array(
                     '_title'      => __( 'Link Color', 'wpmedium' ),
                     '_options'    => array(
                         'id'    => 'link_color',
-                        'help'  => sprintf( __( 'Link Color Help %s', 'wpmedium' ), '#444444' ),
+                        'help'  => sprintf( __( 'Link Color Help %s', 'wpmedium' ), '#5765ad' ),
                         'label' => '',
-                        'value' => '#444444',
+                        'value' => '#5765ad',
                     ),
                 ),
                 // Link:hover color
