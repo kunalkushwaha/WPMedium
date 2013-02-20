@@ -304,6 +304,7 @@ a, a:hover {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0 auto;
+    width: 98%;
 }
 
 .site-menu ul {
@@ -416,9 +417,11 @@ a, a:hover {
     height: 2.500em;
     margin: 0.625em auto 0 auto;
     overflow: visible !important;
+    width: 98%;
 }
 
 .site-categories a {
+    border-bottom: 1px solid transparent;
     color: #222 !important;
     display: block;
     float: left;
@@ -429,9 +432,12 @@ a, a:hover {
     text-decoration: none;
 }
 
-.site-categories a.active,
-.site-categories a:link:hover {
-    border-bottom: 1px solid #000;
+.site-categories a.active {
+    border-bottom-color: #000;
+}
+
+.site-categories a:hover {
+    border-bottom-color: #45568c !important;
 }
 
 .site-categories-count  {
@@ -451,6 +457,7 @@ a, a:hover {
 
 #main {
     margin: 1.500em auto 3em auto;
+    width: 72em;
 }
 
 #content {
@@ -568,6 +575,7 @@ a, a:hover {
     width: auto;
 }
 
+.entry-header img.landscape,
 .entry-header img.landscape-fit,
 .entry-header img.portrait {
     height: auto;
@@ -902,9 +910,9 @@ a, a:hover {
     color: #fff;
     display: block;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 0.8em;
     height: 100%;
-    line-height: 2.75em;
+    line-height: 3.5em;
     padding: 0 1.125em;
     text-decoration: none;
 }
@@ -967,7 +975,7 @@ a, a:hover {
 
 #archive .entry-header-image,
 #home .entry-header-image {
-	/*position: relative;*/
+    max-height: 15.250em;
 }
 
 #archive .entry-header img.wp-post-image,
@@ -986,15 +994,19 @@ a, a:hover {
 
 /** Media relative **/
 
-@media screen and (min-width: 78em) {
+@media screen and (min-width: 78em) and (max-width: 90em) {
     
     #main {
-        width: 1155px;
+        width: 72em !important;
     }
     .site-menu,
     .site-categories,
     .archive-menu {
-        width: 1135px;
+        width: 98% !important;
+    }
+    
+    .post {
+        width: 34.750em !important;
     }
 }
 
@@ -1015,7 +1027,7 @@ a, a:hover {
     #home article.post,
     #archive article.post {
         margin: 0.5em !important;
-        width: 19em !important;
+        width: 29em !important;
     }
     
     article.sticky .entry-header {
@@ -1084,7 +1096,7 @@ a, a:hover {
     
     .site-menu a {
         border: 0;
-        border-radius: 4px;
+        border-radius: 4px !important;
     }
     
     .site-header h1, .site-header h2 {
@@ -1188,6 +1200,7 @@ a, a:hover {
     .site-menu a {
         border: 0;
         border-radius: 4px;
+        line-height: 3.0em;
     }
     
     .site-header h1, .site-header h2 {
@@ -1269,8 +1282,15 @@ a, a:hover {
         background-size: auto 100%;
     }
     
-    #main, 
-    #content, 
+    #main {
+        width: 100% !important;
+    }
+    
+    #content {
+        width: 100% !important;
+    }
+    
+    
     .site-menu,
     .site-categories,
     .archive-menu {
@@ -1310,6 +1330,7 @@ a, a:hover {
     .site-menu a {
         border: 0;
         border-radius: 4px;
+        line-height: 3.0em;
         padding: 0;
         width: 100%;
     }
