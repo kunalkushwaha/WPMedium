@@ -462,13 +462,14 @@ a, a:hover {
 
 #content {
     margin: 0 auto;
-    padding: 1em 0 2.500em 0;
+    padding: 1em 0 2.500em 0;
     position: relative;
 }
 
 .site-content {
     float: none;
     margin: 0;
+    padding-bottom: 3em;
     width: 100%;
 }
 
@@ -870,7 +871,7 @@ a, a:hover {
 }
 
 #archive .sticky {
-    width: 73em;
+    /*width: 73em;*/
 }
 
 #archive .sticky .entry-header-image img {
@@ -911,10 +912,11 @@ a, a:hover {
     background: #b3b3b1;
     color: #fff;
     display: block;
+    font-family: "PT Sans Narrow", sans-serif;
     font-weight: bold;
-    font-size: 0.8em;
+    font-size: 1em;
     height: 100%;
-    line-height: 3.5em;
+    line-height: 2.750em;
     padding: 0 1.125em;
     text-decoration: none;
 }
@@ -925,6 +927,7 @@ a, a:hover {
 
 .archive-controls a:hover {
     background: #777;
+    color: #fff !important;
 }
 
 .archive-controls a,
@@ -947,11 +950,11 @@ a, a:hover {
     width: 0;
 }
 
-.archive-recommended-posts {
+.archive-newest-posts {
     
 }
 
-.archive-recent-posts {
+.archive-oldest-posts {
     
 }
 
