@@ -25,8 +25,8 @@ function twentytwelve_custom_header_setup() {
 		'default-image'          => '',
 
 		// Set height and width, with a maximum value for the width.
-		'height'                 => 250,
-		'width'                  => 960,
+		'height'                 => 420,
+		'width'                  => 800,
 		'max-width'              => 2000,
 
 		// Support flexible height and width.
@@ -115,7 +115,7 @@ function twentytwelve_admin_header_style() {
 	}
 	#headimg h2 {
 		color: #777;
-		font: normal 13px/1.8 "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+		font: normal 13px/1.8 "Libre Baskerville", sans-serif;
 		margin-bottom: 24px;
 	}
 	#headimg img {
