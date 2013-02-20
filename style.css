@@ -147,13 +147,12 @@ a, a:hover {
     font-family: "Tahoma", serif;
     font-size: 1.4em;
     font-weight: bold;
-    height: auto;
     left: 0.625em;
-    padding: 0 4px;
+    line-height: 75%;
+    padding: 2px 4px;
     position: fixed;
     text-align: center;
     top: 0.625em;
-    width: auto;
     z-index: 9999;
     text-decoration: none;
     text-shadow: 1px 1px 0 #000;
@@ -173,7 +172,8 @@ a, a:hover {
 
 #WP img {
     height: 32px;
-    width: 32px;
+    margin: 4px 2px;
+    width: auto;
 }
 
 .wrap {
@@ -575,7 +575,6 @@ a, a:hover {
     width: auto;
 }
 
-.entry-header img.landscape,
 .entry-header img.landscape-fit,
 .entry-header img.portrait {
     height: auto;
@@ -1007,6 +1006,11 @@ a, a:hover {
     
     .post {
         width: 34.750em !important;
+    }
+    
+    .entry-header img.landscape {
+        height: auto;
+        width: 100%;
     }
 }
 

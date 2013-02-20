@@ -572,7 +572,7 @@ function wpmedium_add_taxonomy_image( $taxonomy ) {
 <?php } ?>
 				</div>
 				
-				<input type="hidden" id="wpmedium_taxonomy_image" name="wpmedium_taxonomy_image" value="<?php echo $taxonomy_image; ?>" />
+				<input type="hidden" id="wpmedium_taxonomy_image" name="wpmedium_taxonomy_image" value="<?php echo $taxonomy_image; ?>" class="image_url" />
 				<input id="upload_taxonomy_image" type="button" class="button-primary" value="<?php _e( 'Upload Image', 'wpmedium' ); ?>" style="width: 100px;" />
 				<input id="delete_taxonomy_image" name="wpmedium_taxonomy_image_delete" type="submit" class="button-primary" value="<?php _e( 'Delete Image', 'wpmedium' ); ?>" <?php echo $style; ?> />
 				<p class="description"><?php _e( 'Taxonomy Image Help', 'wpmedium' ); ?></p>
@@ -840,13 +840,13 @@ function wpmedium_options_callback( $section ) {
             $options = get_option( $wpmedium_options['options']['general_options']['page'] );
             $url = esc_url( $options[$section['id']] );
             $style = ($url == '' ? 'display:none;' : '' );
-            $html = '<div id="upload_logo_preview" style="">';
+            $html = '<div class="upload_preview" id="upload_site_logo_preview">';
             $html .= '<img src="'.$url.'" alt="" />';
             $html .= '</div>';
-            $html .= '<input type="hidden" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="'.esc_attr($options[$section['id']]).'" />';
-            $html .= '<input id="upload_logo_button" type="button" class="button-primary" value="'.__( 'Upload Logo', 'wpmedium' ).'" />';
+            $html .= '<input type="hidden" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="'.esc_attr($options[$section['id']]).'" class="image_url" />';
+            $html .= '<input id="upload_site_logo_button" type="button" class="button-primary" value="'.__( 'Upload Logo', 'wpmedium' ).'" />';
             if ( '' != $options[$section['id']] )
-                $html .= '<input id="delete_logo_button" name="'.$wpmedium_options['options']['general_options']['page'].'[delete_logo]" type="submit" class="button-primary" value="'.__( 'Delete Logo', 'wpmedium' ).'" />';
+                $html .= '<input id="delete_site_logo_button" name="'.$wpmedium_options['options']['general_options']['page'].'[delete_site_logo]" type="submit" class="button-primary" value="'.__( 'Delete Logo', 'wpmedium' ).'" />';
             echo $html;
             break;
         case 'default_taxonomy':
@@ -870,10 +870,10 @@ function wpmedium_options_callback( $section ) {
             $options = get_option( $wpmedium_options['options']['general_options']['page'] );
             $url = esc_url( $options[$section['id']] );
             $style = ($url == '' ? 'display:none;' : '' );
-            $html = '<div id="upload_post_thumbnail_preview" style="">';
+            $html = '<div class="upload_preview" id="upload_post_thumbnail_preview">';
             $html .= '<img src="'.$url.'" alt="" />';
             $html .= '</div>';
-            $html .= '<input type="hidden" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="'.esc_attr($options[$section['id']]).'" />';
+            $html .= '<input type="hidden" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="'.esc_attr($options[$section['id']]).'" class="image_url" />';
             $html .= '<input id="upload_post_thumbnail_button" type="button" class="button-primary" value="'.__( 'Upload Post Thumbnail', 'wpmedium' ).'" />';
             if ( '' != $options[$section['id']] )
                 $html .= '<input id="delete_post_thumbnail_button" name="'.$wpmedium_options['options']['general_options']['page'].'[delete_post_thumbnail]" type="submit" class="button-primary" value="'.__( 'Delete Post Thumbnail', 'wpmedium' ).'" />';
@@ -883,10 +883,10 @@ function wpmedium_options_callback( $section ) {
             $options = get_option( $wpmedium_options['options']['general_options']['page'] );
             $url = esc_url( $options[$section['id']] );
             $style = ($url == '' ? 'display:none;' : '' );
-            $html = '<div id="upload_W_image_preview" style="">';
+            $html = '<div class="upload_preview" id="upload_W_image_preview">';
             $html .= '<img src="'.$url.'" alt="" />';
             $html .= '</div>';
-            $html .= '<input type="hidden" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="'.esc_attr($options[$section['id']]).'" />';
+            $html .= '<input type="hidden" id="'.$section['id'].'" name="'.$wpmedium_options['options']['general_options']['page'].'['.$section['id'].']" value="'.esc_attr($options[$section['id']]).'" class="image_url" />';
             $html .= '<input id="upload_W_image_button" type="button" class="button-primary" value="'.__( 'Upload W Image', 'wpmedium' ).'" />';
             if ( '' != $options[$section['id']] )
                 $html .= '<input id="delete_W_image_button" name="'.$wpmedium_options['options']['general_options']['page'].'[delete_W_image]" type="submit" class="button-primary" value="'.__( 'Delete W Image', 'wpmedium' ).'" />';
