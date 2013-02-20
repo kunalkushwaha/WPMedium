@@ -339,19 +339,19 @@ function wpmedium_the_taxonomy( $before = '', $sep = ', ', $after = '' ) {
  */
 function wpmedium_get_archive_controls() {
     
-    $recommended = '';
-    $recent      = '';
+    $newest = '';
+    $oldest = '';
     
     if ( !isset( $_GET['order_by'] ) || ( $_GET['order_by'] == '' || $_GET['order_by'] == 'comment_count' ) ) {
-        $recommended .= '<li class="archive-recommended-posts"><span class="active">'.__( 'Recommend', 'wpmedium' ).'</span></li>';
-        $recent      .= '<li class="archive-recent-posts"><a href="?order_by=date&amp;order=DESC" class="">'.__( 'Recent', 'wpmedium' ).'</a></li>';
+        $newest .= '<li class="archive-newest-posts"><span class="active">'.__( 'Newest', 'wpmedium' ).'</span></li>';
+        $oldest .= '<li class="archive-oldest-posts"><a href="?order_by=date&amp;order=DESC" class="">'.__( 'Oldest', 'wpmedium' ).'</a></li>';
     }
     else if ( $_GET['order_by'] == 'date' ) {
-        $recommended .= '<li class="archive-recommended-posts"><a href="?order_by=comment_count&amp;order=DESC" class="">'.__( 'Recommend', 'wpmedium' ).'</a></li>';
-        $recommended .= '<li class="archive-recent-posts"><span class="active">'.__( 'Recent', 'wpmedium' ).'</span></li>';
+        $newest .= '<li class="archive-newest-posts"><a href="?order_by=comment_count&amp;order=DESC" class="">'.__( 'Newest', 'wpmedium' ).'</a></li>';
+        $oldest .= '<li class="archive-oldest-posts"><span class="active">'.__( 'Oldest', 'wpmedium' ).'</span></li>';
     }
     
-    return $recommended."\n".$recent;
+    return $newest."\n".$oldest;
 }
 
 /**
@@ -491,7 +491,7 @@ function wpmedium_the_social_links() {
 function wpmedium_get_the_taxonomy_image() {
     global $authorized_taxonomy, $wpmedium, $term;
     
-    $ret = '';
+    $ret = $wpmedium['general']['site_logo'];
     
     if ( !in_array( $term->taxonomy, $authorized_taxonomy ) )
         return false;
@@ -523,9 +523,7 @@ function wpmedium_get_the_taxonomy_image() {
             }
         }
     }
-    else {
-        $ret = $wpmedium['general']['site_logo'];
-    }
+    
     return $ret;
 }
 

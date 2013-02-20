@@ -45,7 +45,7 @@ get_header(); $term = get_queried_object(); ?>
               </header><!-- .entry-header -->
                 
               <div class="entry-content">
-                <?php ( is_sticky() ? the_long_excerpt( get_the_content() ) : the_excerpt() ); ?>
+                <?php ( is_sticky() ? wpmedium_the_long_excerpt( get_the_content() ) : the_excerpt() ); ?>
               </div><!-- .entry-content -->
               
               <footer class="entry-meta">
