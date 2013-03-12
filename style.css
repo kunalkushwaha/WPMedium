@@ -762,7 +762,8 @@ a, a:hover {
 
 #single .entry-content,
 #page .entry-content {
-    font-size: 1.2em;
+    font-size: 1.1em;
+    letter-spacing: -1px;
 }
 
 #single .entry-tags,
