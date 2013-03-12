@@ -187,15 +187,12 @@ function wpmedium_get_post_thumbnail() {
         
         $ret = '<img src="'.$attachment[0].'" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image '.$class.'" />';
     }
-    else if ( $wpmedium['general']['toggle_default_post_thumbnail'] != '1' && $wpmedium['general']['default_post_thumbnail'] != '' ) {
+    else if ( $wpmedium['general']['toggle_default_post_thumbnail'] == '1' && $wpmedium['general']['default_post_thumbnail'] != '' ) {
         $ret = '<img src="'.esc_url( $wpmedium['general']['default_post_thumbnail'] ).'" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image default" />';
     }
-    else if ( ( $wpmedium['general']['toggle_default_post_thumbnail'] == '1' || $wpmedium['general']['default_post_thumbnail'] == '' ) && file_exists( get_template_directory().'/images/wpmedium-post-thumbnail.jpg' ) ) {
-        
-        $ret = '<img src="'.get_template_directory_uri().'/images/wpmedium-post-thumbnail.jpg" alt="'.get_the_title( $post->ID ).'" class="attachment-post-thumbnail wp-post-image default" />';
-    }
-    else
+    else {
         $ret = '';
+    }
     
     return $ret;
 }
