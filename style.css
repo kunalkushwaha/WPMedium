@@ -16,7 +16,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.en.html
 body {
     background-color: #f9f9f9;
     color: #1d1d1d;
-    font-family: "Libre Baskerville", Georgia, sans-serif;
+    font-family: "PT Serif", Georgia, sans-serif;
     font-size: 100%;
     margin: 0;
     max-width: 100%;
@@ -762,8 +762,8 @@ a, a:hover {
 
 #single .entry-content,
 #page .entry-content {
-    font-size: 1.1em;
-    letter-spacing: -1px;
+    font-size: 1.2em;
+    /*letter-spacing: -1px;*/
 }
 
 #single .entry-tags,
