@@ -1014,4 +1014,4 @@ function replace_thickbox_text( $translated_text, $text, $domain ) {
     return $translated_text;  
 }
 
-?> 
+?>
